@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orçamento · Clarissa Cunha</title>
+<meta name="description" content="Solicite seu orçamento personalizado. Assessoria completa, destination wedding, infantil e online." />
+
+<meta property="og:title" content="Orcamento · Clarissa Cunha — Assessoria de Casamentos" />
+<meta property="og:description" content="Solicite seu orcamento personalizado. Assessoria completa, destination wedding, infantil e online. Recife-PE." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/brand/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#FBF7F1" />
+<link rel="canonical" href="https://www.clarissacunha.com.br/orcamento.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ——— Orçamento page ——— */
+.orcamento-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad) var(--sp-10);
+  align-items: start;
+}
+
+/* ——— Form ——— */
+.orcamento-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.form-section-title {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: var(--cc-ink);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--cc-line);
+  margin-bottom: 8px;
+}
+.form-section-title em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-row--3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Service options */
+.service-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Submit area */
+.form-submit {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+.form-submit .privacy {
+  font-size: 12px;
+  color: var(--cc-ink-muted);
+  line-height: 1.6;
+}
+.form-submit .privacy a {
+  color: var(--cc-teal-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.btn--submit {
+  width: 100%;
+  justify-content: center;
+  font-size: 13px;
+  padding: 20px 32px;
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  border-radius: var(--radius-pill);
+  transition: background 300ms, transform 300ms var(--ease-spring);
+}
+.btn--submit:hover {
+  background: var(--cc-lavender-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ——— Sidebar ——— */
+.orcamento-sidebar {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.sidebar-card {
+  background: var(--cc-paper);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1px solid var(--cc-line-soft);
+}
+.sidebar-card h3 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.sidebar-card h3 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.sidebar-card p {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.contact-list .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--cc-cream);
+  border: 1px solid var(--cc-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.contact-list a {
+  color: var(--cc-ink);
+  transition: color 250ms;
+}
+.contact-list a:hover {
+  color: var(--cc-teal-deep);
+}
+.sidebar-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.sidebar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.promise-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.promise-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cc-ink-soft);
+  line-height: 1.5;
+}
+.promise-list li::before {
+  content: "✓";
+  color: var(--cc-teal);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ——— Process section ——— */
+.process-section {
+  background: var(--cc-paper);
+  padding: var(--sp-11) var(--container-pad);
+}
+.process-section__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--cc-line);
+  border: 1px solid var(--cc-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: var(--sp-7);
+}
+.process-step {
+  background: var(--cc-cream);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.process-step .step-num {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--cc-teal-deep);
+}
+.process-step h3 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.process-step h3 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.process-step p {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 900px) {
+  .orcamento-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .orcamento-sidebar {
+    position: static;
+    order: -1;
+  }
+  .form-row { grid-template-columns: 1fr; }
+  .form-row--3 { grid-template-columns: 1fr 1fr; }
+  .service-opts { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .form-row--3 { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+}
+
+/* ===== MOBILE ORCAMENTO ===== */
+@media (max-width: 600px) {
+  .orcamento-layout {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 80px !important;
+  }
+  .process-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  .form-section-title { font-size: 22px; }
+  .service-opts { grid-template-columns: 1fr; }
+  .btn--submit { font-size: 12px; padding: 18px 24px; }
+  .sidebar-card { padding: 24px 20px; }
+  .sidebar-img { aspect-ratio: 16/9; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step { padding: 28px 24px; }
+}
+@media (max-width: 480px) {
+  .orcamento-layout { gap: 32px; }
+  .contact-list li { font-size: 13px; }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ——— HERO ——— -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <div class="page-hero__crumb">
+        <a href="index.html">Início</a>
+        <span class="sep">·</span>
+        <span>Orçamento</span>
+      </div>
+      <div class="page-hero__eyebrow" data-reveal>O início de tudo</div>
+      <h1 data-reveal data-reveal-delay="100">
+        Cada grande história<br/>
+        começa com uma<br/>
+        <em>conversa sincera</em>
+      </h1>
+      <p class="page-hero__lede" data-reveal data-reveal-delay="200">
+        Compartilhe sua visão conosco. Cada detalhe que você nos conta nos aproxima da curadoria exclusiva que o seu momento singular merece.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— FORM + SIDEBAR ——— -->
+  <div class="orcamento-layout">
+
+    <!-- FORM -->
+    <div data-reveal>
+      <form class="orcamento-form" action="#" method="post" novalidate>
+
+        <!-- Dados pessoais -->
+        <div>
+          <div class="form-section-title">Dados <em>pessoais</em></div>
+          <div style="display:flex; flex-direction:column; gap:20px; margin-top:24px;">
+            <div class="form-row">
+              <div class="field">
+                <label for="nome">Nome completo <span class="req">*</span></label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              </div>
+              <div class="field">
+                <label for="email">E-mail <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="telefone">Telefone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="telefone" name="telefone" placeholder="(81) 99999-9999" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Detalhes do casamento -->
+        <div>
+          <div class="form-section-title">Detalhes do <em>casamento</em></div>
+          <div style="display:flex; flex-direction:column; gap:20px; margin-top:24px;">
+            <div class="form-row">
+              <div class="field">
+                <label for="data">Data do casamento <span class="req">*</span></label>
+                <input type="date" id="data" name="data" required />
+              </div>
+              <div class="field">
+                <label for="convidados">Número de convidados <span class="req">*</span></label>
+                <select id="convidados" name="convidados" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="ate50">Até 50 pessoas</option>
+                  <option value="50-100">50 a 100 pessoas</option>
+                  <option value="100-200">100 a 200 pessoas</option>
+                  <option value="200-400">200 a 400 pessoas</option>
+                  <option value="400+">Mais de 400 pessoas</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="local">Local desejado</label>
+              <input type="text" id="local" name="local" placeholder="Ex: Recife, Noronha, Maragogi, Lisboa..." />
+            </div>
+          </div>
+        </div>
+
+        <!-- Tipo de serviço -->
+        <div>
+          <div class="form-section-title">Tipo de <em>serviço</em></div>
+          <div style="margin-top:24px;">
+            <div class="service-opts">
+              <label class="opt">
+                <input type="radio" name="servico" value="completa" />
+                <span class="dot"></span>
+                <div class="opt-body">
+                  <div class="opt-title">Assessoria <em>Completa</em></div>
+                  <div class="opt-sub">Do planejamento ao dia — cuidamos de tudo com você.</div>
+                </div>
+              </label>
+              <label class="opt">
+                <input type="radio" name="servico" value="destination" />
+                <span class="dot"></span>
+                <div class="opt-body">
+                  <div class="opt-title"><em>Destination</em> Wedding</div>
+                  <div class="opt-sub">Casamentos em destinos especiais, nacionais ou internacionais.</div>
+                </div>
+              </label>
+              <label class="opt">
+                <input type="radio" name="servico" value="infantil" />
+                <span class="dot"></span>
+                <div class="opt-body">
+                  <div class="opt-title">Festa <em>Infantil</em></div>
+                  <div class="opt-sub">Celebrações para os pequenos com a mesma excelência.</div>
+                </div>
+              </label>
+              <label class="opt">
+                <input type="radio" name="servico" value="online" />
+                <span class="dot"></span>
+                <div class="opt-body">
+                  <div class="opt-title">Assessoria <em>Online</em></div>
+                  <div class="opt-sub">Consultoria remota para noivas em qualquer lugar do Brasil.</div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensagem -->
+        <div>
+          <div class="form-section-title">Sua <em>mensagem</em></div>
+          <div style="margin-top:24px;">
+            <div class="field">
+              <label for="mensagem">Conte-nos sobre o casamento dos seus sonhos</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Descreva o estilo que imagina, o local dos sonhos, o que é mais importante para vocês... Quanto mais detalhes, melhor podemos ajudar." rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Como nos encontrou -->
+        <div class="field">
+          <label for="origem">Como nos encontrou?</label>
+          <select id="origem" name="origem">
+            <option value="" disabled selected>Selecione</option>
+            <option value="instagram">Instagram</option>
+            <option value="indicacao">Indicação de amigos</option>
+            <option value="google">Google</option>
+            <option value="revista">Revista / Mídia</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit">
+          <button type="submit" class="btn btn--submit">
+            Enviar solicitação
+            <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+          <p class="privacy">
+            Ao enviar, você concorda com nossa <a href="#">política de privacidade</a>. Seus dados são tratados com total sigilo e nunca compartilhados com terceiros.
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="orcamento-sidebar" data-reveal data-reveal-delay="200">
+
+      <div class="sidebar-img">
+        <img src="assets/press/clarissa-ja.jpg" alt="Clarissa Cunha" data-cursor="image" />
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Fale <em>diretamente</em></h3>
+        <p>Prefere uma conversa mais rápida? Entre em contato pelos nossos canais diretos.</p>
+        <ul class="contact-list">
+          <li>
+            <span class="icon">📱</span>
+            <a href="https://api.whatsapp.com/send?phone=5581996613555" target="_blank" rel="noopener">(81) 99661-3555</a>
+          </li>
+          <li>
+            <span class="icon">✉️</span>
+            <a href="mailto:clarissa.cunha@gmail.com">clarissa.cunha@gmail.com</a>
+          </li>
+          <li>
+            <span class="icon">📸</span>
+            <a href="https://instagram.com/clarissacunha" target="_blank" rel="noopener">@clarissacunha</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Nossa <em>promessa</em></h3>
+        <ul class="promise-list">
+          <li>Resposta em até 48 horas úteis</li>
+          <li>Proposta personalizada para o seu perfil</li>
+          <li>Sem compromisso na primeira conversa</li>
+          <li>Sigilo total sobre suas informações</li>
+          <li>Atendimento humanizado e próximo</li>
+          <li>Mais de 500 casamentos de experiência</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card" style="background: var(--cc-ink); color: var(--cc-cream);">
+        <h3 style="color:var(--cc-cream);">Horário de <em style="color:var(--cc-lavender-soft);">atendimento</em></h3>
+        <p style="color:rgba(251,247,241,0.7);">Segunda a sexta, das 9h às 18h.<br/>Sábados mediante agendamento.</p>
+        <p style="color:rgba(251,247,241,0.5); font-size:12px; margin-top:12px;">Espinheiro · Recife-PE</p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ——— PROCESSO ——— -->
+  <section class="process-section">
+    <div class="process-section__inner">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow t-eyebrow">Como funciona</div>
+        <h2>Do primeiro contato ao <em>grande dia</em></h2>
+        <p>Um processo pensado para que você se sinta segura e tranquila em cada etapa.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step" data-reveal>
+          <div class="step-num">01</div>
+          <h3>Primeiro <em>contato</em></h3>
+          <p>Você preenche o formulário ou nos chama no WhatsApp. Respondemos em até 48 horas com uma proposta inicial.</p>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="100">
+          <div class="step-num">02</div>
+          <h3>Reunião de <em>alinhamento</em></h3>
+          <p>Uma conversa presencial ou por vídeo para entender sua visão, estilo e expectativas para o grande dia.</p>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="200">
+          <div class="step-num">03</div>
+          <h3>Proposta <em>personalizada</em></h3>
+          <p>Elaboramos uma proposta detalhada com escopo, cronograma e investimento alinhados ao seu perfil.</p>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="300">
+          <div class="step-num">04</div>
+          <h3>Planejamento & <em>execução</em></h3>
+          <p>Com o contrato assinado, começamos o planejamento completo — do conceito ao último detalhe do dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+  // Opt card selection
+  document.querySelectorAll('.opt input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('.opt').forEach(o => o.classList.remove('is-selected'));
+      if (radio.checked) radio.closest('.opt').classList.add('is-selected');
+    });
+  });
+</script>
+</body>
+</html>

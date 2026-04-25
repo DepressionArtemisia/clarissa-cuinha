@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casamento Castelinho · Clarissa Cunha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+.wedding-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--container-pad) 80px;
+  overflow: hidden;
+}
+.wedding-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/casamentos/castelinho/foto-01.jpg') center/cover;
+  z-index: 0;
+}
+.wedding-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42,47,58,0.85) 0%, transparent 60%);
+  z-index: 1;
+}
+.wedding-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  color: var(--cc-cream);
+}
+.wedding-hero__tag {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.6);
+  margin-bottom: 16px;
+}
+.wedding-hero h1 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.wedding-hero h1 em {
+  font-style: italic;
+  color: var(--cc-lavender-soft);
+}
+.wedding-hero__meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: var(--ff-sans);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.7);
+}
+
+.wedding-gallery {
+  padding: var(--sp-11) var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.wedding-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.wedding-gallery__item {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.wedding-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.wedding-gallery__item:hover img {
+  transform: scale(1.05);
+}
+.wedding-gallery__item:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/7;
+}
+
+.wedding-details {
+  background: var(--cc-paper);
+  padding: var(--sp-10) var(--container-pad);
+}
+.wedding-details__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.wedding-details h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(32px, 3vw, 48px);
+  margin-bottom: 24px;
+  color: var(--cc-ink);
+}
+.wedding-details p {
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  color: var(--cc-ink-soft);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .wedding-hero {
+    min-height: 70vh;
+    padding-bottom: 60px;
+  }
+  .wedding-gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .wedding-gallery__item:first-child {
+    aspect-ratio: 4/3;
+  }
+}
+</style>
+</head>
+<body>
+<main>
+  <section class="wedding-hero">
+    <div class="wedding-hero__content">
+      <div class="wedding-hero__tag">Destination Wedding</div>
+      <h1>Casamento <em>Castelinho</em></h1>
+      <div class="wedding-hero__meta">
+        <span>Recife · Pernambuco</span>
+        <span>200 convidados</span>
+        <span>Cerimônia ao ar livre</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wedding-gallery">
+    <div class="wedding-gallery__grid">
+      <div class="wedding-gallery__item" data-reveal>
+        <img src="assets/casamentos/castelinho/foto-01.jpg" alt="Casamento Castelinho" />
+      </div>
+      <div class="wedding-gallery__item" data-reveal data-reveal-delay="100">
+        <img src="assets/casamentos/castelinho/foto-02.jpg" alt="Casamento Castelinho" />
+      </div>
+      <div class="wedding-gallery__item" data-reveal data-reveal-delay="200">
+        <img src="assets/casamentos/castelinho/foto-03.jpg" alt="Casamento Castelinho" />
+      </div>
+      <div class="wedding-gallery__item" data-reveal data-reveal-delay="300">
+        <img src="assets/casamentos/castelinho/foto-04.jpg" alt="Casamento Castelinho" />
+      </div>
+    </div>
+  </section>
+
+  <section class="wedding-details">
+    <div class="wedding-details__inner">
+      <h2>A História</h2>
+      <p>Um casamento inesquecível no icônico Castelinho, em Recife. Com vista privilegiada e uma atmosfera romântica, cada detalhe foi pensado para criar momentos mágicos.</p>
+      <p>A cerimônia ao ar livre, seguida de uma recepção elegante, reuniu 200 convidados em uma celebração que uniu tradição e modernidade com perfeição.</p>
+      <div style="margin-top: 48px; text-align: center;">
+        <a href="casamentos.html" class="btn btn--ghost">← Voltar ao portfólio</a>
+        <a href="orcamento.html" class="btn btn--primary" style="margin-left: 16px;">
+          Solicitar orçamento
+          <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/site.js"></script>
+</body>
+</html>

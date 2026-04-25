@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sobre · Clarissa Cunha</title>
+<meta name="description" content="Advogada por formação, assessora de casamentos por vocação. Conheça a história de Clarissa Cunha e sua equipe." />
+
+<meta property="og:title" content="Sobre · Clarissa Cunha — Assessoria de Casamentos" />
+<meta property="og:description" content="Advogada por formacao, assessora de casamentos por vocacao. Conheca a historia de Clarissa Cunha e sua equipe desde 2012." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/brand/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#FBF7F1" />
+<link rel="canonical" href="https://www.clarissacunha.com.br/sobre.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ——— Sobre page ——— */
+.sobre-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: var(--sp-11) var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.sobre-split__img {
+  position: relative;
+}
+.sobre-split__img img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+.sobre-split__img::after {
+  content: "";
+  position: absolute;
+  inset: 20px -20px -20px 20px;
+  border: 1px solid var(--cc-lavender-soft);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+.sobre-split__badge {
+  position: absolute;
+  bottom: 32px;
+  left: -24px;
+  background: var(--cc-cream);
+  border: 1px solid var(--cc-line);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-card);
+  max-width: 220px;
+}
+.sobre-split__badge .num {
+  font-family: var(--ff-display);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--cc-teal);
+}
+.sobre-split__badge .lbl {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cc-ink-muted);
+  margin-top: 4px;
+}
+.sobre-split__text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.sobre-split__text h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(26px, 2.5vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.sobre-split__text h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.sobre-split__text p {
+  font-size: var(--fs-md);
+  line-height: 1.75;
+  color: var(--cc-ink-soft);
+}
+.sobre-split__text blockquote {
+  padding: 20px 28px;
+  margin: 0;
+  background: var(--cc-cream-warm);
+  border-radius: 4px 24px 4px 24px;
+  position: relative;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 300;
+  color: var(--cc-ink);
+  line-height: 1.4;
+}
+
+/* ——— Trajetória timeline ——— */
+.timeline-section {
+  background: var(--cc-paper);
+  padding: var(--sp-11) var(--container-pad);
+}
+.timeline-section__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: var(--sp-8);
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--cc-line);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  padding: 40px 60px 40px 0;
+  position: relative;
+}
+.timeline-item:nth-child(even) {
+  padding: 40px 0 40px 60px;
+  text-align: left;
+}
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 48px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--cc-lavender);
+  border: 2px solid var(--cc-cream);
+}
+.timeline-item:nth-child(even)::after {
+  right: auto;
+  left: -6px;
+}
+.timeline-item .year {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--cc-teal-deep);
+  margin-bottom: 10px;
+}
+.timeline-item h3 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 22px);
+  margin-bottom: 10px;
+}
+.timeline-item p {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+}
+
+/* ——— Equipe ——— */
+.team-section {
+  padding: var(--sp-11) var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: var(--sp-7);
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.team-card__img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+.team-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out);
+}
+.team-card:hover .team-card__img img {
+  transform: scale(1.05);
+}
+.team-card__name {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 20px;
+}
+.team-card__role {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cc-teal-deep);
+}
+
+/* ——— Filosofia ——— */
+.filosofia-section {
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  padding: var(--sp-11) var(--container-pad);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.filosofia-section::before {
+  content: "alegria";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(120px, 20vw, 300px);
+  font-weight: 300;
+  color: rgba(251,247,241,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+.filosofia-section__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.filosofia-section blockquote {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(24px, 2.8vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 32px;
+}
+.filosofia-section cite {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.5);
+  font-style: normal;
+}
+
+/* ——— Presença ——— */
+.presenca-section {
+  padding: var(--sp-11) var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.presenca-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--cc-line);
+  border: 1px solid var(--cc-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: var(--sp-7);
+}
+.presenca-item {
+  background: var(--cc-cream);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.presenca-item .icon {
+  font-size: 28px;
+  line-height: 1;
+}
+.presenca-item h3 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 24px;
+}
+.presenca-item p {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.6;
+}
+
+/* ——— CTA ——— */
+.sobre-cta {
+  background: var(--cc-grad-petal);
+  padding: var(--sp-11) var(--container-pad);
+  text-align: center;
+}
+.sobre-cta__inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.sobre-cta h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(26px, 2.5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.sobre-cta h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.sobre-cta p {
+  font-size: var(--fs-md);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+}
+.sobre-cta__btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 900px) {
+  .sobre-split {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .sobre-split__img::after { display: none; }
+  .sobre-split__badge { left: 16px; }
+  .timeline { grid-template-columns: 1fr; }
+  .timeline::before { left: 20px; }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    padding: 24px 24px 24px 52px;
+    text-align: left;
+  }
+  .timeline-item::after,
+  .timeline-item:nth-child(even)::after {
+    left: 14px;
+    right: auto;
+  }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .presenca-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .presenca-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ===== MOBILE SOBRE ===== */
+@media (max-width: 600px) {
+  .sobre-split,
+  .timeline-section,
+  .team-section,
+  .filosofia-section,
+  .presenca-section,
+  .sobre-cta {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  .sobre-split { padding-top: 48px !important; }
+  .sobre-split__badge { left: 12px; bottom: 16px; }
+  .sobre-split__badge .num { font-size: 40px; }
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .team-card__name { font-size: 16px; }
+  .presenca-grid { grid-template-columns: 1fr; }
+  .timeline-item, .timeline-item:nth-child(even) { padding: 20px 20px 20px 44px; }
+  .sobre-cta__btns { flex-direction: column; width: 100%; }
+  .sobre-cta__btns .btn { justify-content: center; width: 100%; }
+  .filosofia-section blockquote { font-size: clamp(22px, 6vw, 36px); }
+}
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sobre-split__img img { aspect-ratio: 4/5; }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ——— HERO ——— -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <div class="page-hero__crumb">
+        <a href="index.html">Início</a>
+        <span class="sep">·</span>
+        <span>Sobre</span>
+      </div>
+      <div class="page-hero__eyebrow" data-reveal>Fundada em 2012 &middot; Recife-PE</div>
+      <h1 data-reveal data-reveal-delay="100">
+        Da lei à <em>arte</em><br/>
+        de criar momentos<br/>
+        <span class="teal">inesquecíveis.</span>
+      </h1>
+      <p class="page-hero__lede" data-reveal data-reveal-delay="200">
+        Clarissa Cunha é a prova de que vocação não se escolhe — ela se revela. Desde 2012, cada casamento que assina é uma obra singular, uma curadoria de emoções que atravessa gerações.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— SPLIT: FOTO + TEXTO ——— -->
+  <section class="sobre-split">
+    <div class="sobre-split__img" data-reveal>
+      <img src="assets/press/clarissa-sobre.jpg" alt="Clarissa Cunha" data-cursor="image" />
+      <div class="sobre-split__badge">
+        <div class="num">12+</div>
+        <div class="lbl">Anos de história</div>
+      </div>
+    </div>
+    <div class="sobre-split__text">
+      <div class="page-hero__eyebrow" data-reveal>Clarissa Cunha</div>
+      <h2 data-reveal data-reveal-delay="100">
+        Uma trajetória<br/>
+        <em>fora do comum</em>
+      </h2>
+      <p data-reveal data-reveal-delay="200">
+        Formada em Direito com especialização em Lisboa, Clarissa conquistou o primeiro lugar no exame da OAB/PE em 2009 — uma conquista que revelou sua capacidade singular de excelência e dedicação. Mas foi o amor pelos detalhes, pelas histórias de amor e pela arte de criar momentos que a levou a uma escolha pioneira e corajosa.
+      </p>
+      <p data-reveal data-reveal-delay="300">
+        Em 2012, quando a assessoria de casamentos ainda era uma novidade no Nordeste, Clarissa fundou seu escritório em Recife e rapidamente se tornou referência nacional. Seus casamentos já aconteceram em Fernando de Noronha, Alagoas, Bahia, Lisboa e nos mais exclusivos cenários do Brasil — cada um com a mesma assinatura: leveza, curadoria e memórias que duram gerações.
+      </p>
+      <blockquote data-reveal data-reveal-delay="400">
+        "Cada casamento é uma obra singular. Meu papel é garantir que cada detalhe conte a história de amor que o gerou — com leveza, alegria e a excelência que esse momento inesquecível merece."
+      </blockquote>
+      <div data-reveal data-reveal-delay="500">
+        <a href="orcamento.html" class="btn btn--primary">
+          Iniciar conversa
+          <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— STATS ——— -->
+  <div class="container" data-reveal>
+    <div class="stat-row">
+      <div class="stat-cell">
+        <span class="v">+<em>500</em></span>
+        <span class="l">Casamentos realizados</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v"><em>12</em></span>
+        <span class="l">Anos de experiência</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v">+<em>8</em></span>
+        <span class="l">Destinos nacionais</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v"><em>1°</em></span>
+        <span class="l">Lugar OAB/PE 2009</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— TRAJETÓRIA ——— -->
+  <section class="timeline-section">
+    <div class="timeline-section__inner">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow t-eyebrow">Trajetória</div>
+        <h2>Uma história de <em>escolhas</em></h2>
+        <p>Da advocacia à assessoria de casamentos — cada passo foi guiado pela busca de propósito e excelência.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" data-reveal>
+          <div class="year">2005 — 2009</div>
+          <h3>Direito & Excelência</h3>
+          <p>Formação em Direito com dedicação total. Conquista do primeiro lugar no exame da OAB/PE em 2009, revelando uma capacidade única de organização e entrega.</p>
+        </div>
+        <div class="timeline-item" data-reveal data-reveal-delay="100">
+          <div class="year">2010 — 2011</div>
+          <h3>Especialização em Lisboa</h3>
+          <p>Imersão na cultura europeia e no refinamento estético português. Uma experiência que moldou o olhar de Clarissa para a elegância e os detalhes que fazem a diferença.</p>
+        </div>
+        <div class="timeline-item" data-reveal>
+          <div class="year">2012</div>
+          <h3>O início pioneiro</h3>
+          <p>Fundação do escritório em Recife quando a assessoria de casamentos era ainda uma novidade no Nordeste. Uma aposta corajosa que se tornaria referência nacional.</p>
+        </div>
+        <div class="timeline-item" data-reveal data-reveal-delay="100">
+          <div class="year">2015 — 2018</div>
+          <h3>Expansão nacional</h3>
+          <p>Primeiros destination weddings em Fernando de Noronha, Alagoas e Bahia. O nome Clarissa Cunha começa a aparecer nas principais publicações de casamento do Brasil.</p>
+        </div>
+        <div class="timeline-item" data-reveal>
+          <div class="year">2019 — 2022</div>
+          <h3>Reconhecimento & Mídia</h3>
+          <p>Publicações em Vogue Noivas, Constance Zahn, Casar é um Barato e Revista Icasei. Consolidação como uma das assessoras mais requisitadas do país.</p>
+        </div>
+        <div class="timeline-item" data-reveal data-reveal-delay="100">
+          <div class="year">2023 — hoje</div>
+          <h3>Referência & Legado</h3>
+          <p>Equipe ampliada, casamentos em Lisboa e novos destinos internacionais. A assessoria online democratiza o acesso à expertise de Clarissa para todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— FILOSOFIA ——— -->
+  <section class="filosofia-section">
+    <div class="filosofia-section__inner">
+      <div class="page-hero__eyebrow" style="color:rgba(251,247,241,0.5); justify-content:center; margin-bottom:32px;" data-reveal>Nossa filosofia</div>
+      <blockquote data-reveal data-reveal-delay="100">
+        "Cada casamento é único como a história de amor que o gerou. Não é sobre flores ou mesas — é sobre a memória que ficará para sempre. Meu papel é garantir que nada tire o brilho desse momento singular: nem o estresse, nem os imprevistos, nem os detalhes que passam despercebidos. Só o amor, em sua forma mais perfeita."
+      </blockquote>
+      <cite data-reveal data-reveal-delay="200">— Clarissa Cunha, fundadora</cite>
+    </div>
+  </section>
+
+  <!-- ——— EQUIPE ——— -->
+  <section class="team-section">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow t-eyebrow">A equipe</div>
+      <h2>Pessoas que <em>fazem acontecer</em></h2>
+      <p>Cada membro da equipe foi escolhido pela paixão, pelo talento e pelo compromisso com a excelência em cada detalhe.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" data-reveal>
+        <div class="team-card__img">
+          <img src="assets/press/team-01.jpg" alt="Membro da equipe" data-cursor="image" />
+        </div>
+        <div class="team-card__name">Clarissa Cunha</div>
+        <div class="team-card__role">Fundadora & Diretora</div>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="100">
+        <div class="team-card__img">
+          <img src="assets/press/team-02.jpg" alt="Membro da equipe" data-cursor="image" />
+        </div>
+        <div class="team-card__name">Assessora Sênior</div>
+        <div class="team-card__role">Coordenação & Logística</div>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="200">
+        <div class="team-card__img">
+          <img src="assets/press/team-03.jpg" alt="Membro da equipe" data-cursor="image" />
+        </div>
+        <div class="team-card__name">Cerimonialista</div>
+        <div class="team-card__role">Cerimônia & Protocolo</div>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="300">
+        <div class="team-card__img">
+          <img src="assets/press/team-04.jpg" alt="Membro da equipe" data-cursor="image" />
+        </div>
+        <div class="team-card__name">Designer de Eventos</div>
+        <div class="team-card__role">Decoração & Conceito</div>
+      </div>
+      <div class="team-card" data-reveal data-reveal-delay="400">
+        <div class="team-card__img">
+          <img src="assets/press/team-05.jpg" alt="Membro da equipe" data-cursor="image" />
+        </div>
+        <div class="team-card__name">Produtora</div>
+        <div class="team-card__role">Fornecedores & Contratos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— PRESENÇA ——— -->
+  <section class="presenca-section">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow t-eyebrow">Onde atuamos</div>
+      <h2>Do Nordeste ao <em>mundo</em></h2>
+    </div>
+    <div class="presenca-grid">
+      <div class="presenca-item" data-reveal>
+        <div class="icon">🌊</div>
+        <h3>Fernando de Noronha</h3>
+        <p>Casamentos exclusivos no paraíso ecológico mais desejado do Brasil, com toda a logística e permissões necessárias.</p>
+      </div>
+      <div class="presenca-item" data-reveal data-reveal-delay="100">
+        <div class="icon">🏖️</div>
+        <h3>Alagoas & Bahia</h3>
+        <p>Praias paradisíacas do Nordeste, de Maragogi a Trancoso, com fornecedores locais cuidadosamente selecionados.</p>
+      </div>
+      <div class="presenca-item" data-reveal data-reveal-delay="200">
+        <div class="icon">🏛️</div>
+        <h3>Lisboa & Europa</h3>
+        <p>Destination weddings em Portugal com toda a magia da arquitetura histórica e a elegância europeia.</p>
+      </div>
+      <div class="presenca-item" data-reveal data-reveal-delay="300">
+        <div class="icon">🌺</div>
+        <h3>Recife & Pernambuco</h3>
+        <p>Nossa casa, onde tudo começou. Casamentos urbanos e na praia com o melhor da hospitalidade pernambucana.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— CTA ——— -->
+  <section class="sobre-cta">
+    <div class="sobre-cta__inner">
+      <div class="page-hero__eyebrow" style="justify-content:center;" data-reveal>Vamos conversar?</div>
+      <h2 data-reveal data-reveal-delay="100">
+        Sua história merece<br/>
+        ser vivida com <em>plenitude</em>
+      </h2>
+      <p data-reveal data-reveal-delay="200">
+        Entre em contato e descubra como transformamos o planejamento do seu casamento em uma experiência tão singular quanto o próprio dia — com a curadoria exclusiva que você merece.
+      </p>
+      <div class="sobre-cta__btns" data-reveal data-reveal-delay="300">
+        <a href="orcamento.html" class="btn btn--primary">
+          Solicitar orçamento
+          <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/site.js"></script>
+</body>
+</html>

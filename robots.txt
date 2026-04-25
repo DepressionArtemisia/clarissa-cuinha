@@ -1,0 +1,100 @@
+# Robots.txt - Clarissa Cunha Assessoria de Casamentos
+# https://www.clarissacunha.com.br
+
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.clarissacunha.com.br/sitemap.xml
+
+# Disallow admin and member areas
+Disallow: /membros.html
+Disallow: /login.html
+
+# Disallow test and development files
+Disallow: /test-
+Disallow: /CHECKLIST
+Disallow: /DIAGNOSTIC
+Disallow: /ANALISE
+Disallow: /PRE_DEPLOY
+Disallow: /*.md$
+Disallow: /fix_scroll.py
+Disallow: /skills-lock.json
+
+# Disallow temporary files
+Disallow: /*.txt$
+Disallow: /ANTES_DEPOIS.md
+Disallow: /CAROUSEL_EXAMPLE.html
+Disallow: /DEPLOY_
+Disallow: /DESIGN.md
+Disallow: /DOWNLOAD_
+Disallow: /FIXES_
+Disallow: /HEADER_
+Disallow: /IMAGE_
+Disallow: /IMPROVEMENTS_
+Disallow: /MIGRATION_
+Disallow: /MOBILE_
+Disallow: /MUSIC_
+Disallow: /PRODUCT.md
+Disallow: /README_
+Disallow: /SCROLL_
+Disallow: /START_
+Disallow: /SUMMARY_
+Disallow: /WEDDING_
+
+# Disallow video files (too large for crawlers)
+Disallow: /*.mp4$
+
+# Disallow React app folder (if not used)
+Disallow: /react-app/
+
+# Allow specific important pages
+Allow: /index.html
+Allow: /sobre.html
+Allow: /casamentos.html
+Allow: /infantil.html
+Allow: /assessoria-online.html
+Allow: /revista.html
+Allow: /blog.html
+Allow: /midia.html
+Allow: /orcamento.html
+Allow: /monte-sua-festa.html
+
+# Allow portfolio pages
+Allow: /casamentos/*.html
+Allow: /infantil/*.html
+
+# Allow assets
+Allow: /assets/
+Allow: /styles/
+Allow: /js/
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

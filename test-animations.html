@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test Animations · Clarissa Cunha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<style>
+/* ===== PRESS STRIP CARROSSEL INFINITO ===== */
+.home-press-new {
+  padding: var(--sp-8) 0;
+  border-top: 1px solid var(--cc-line);
+  border-bottom: 1px solid var(--cc-line);
+  background: var(--cc-cream);
+  overflow: hidden;
+  position: relative;
+}
+.home-press-new__label {
+  text-align: center;
+  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--cc-ink-muted); font-weight: 500;
+  margin-bottom: 32px;
+}
+.home-press-new__label em {
+  display: block;
+  font-family: var(--ff-display); font-style: italic;
+  font-size: 22px; color: var(--cc-teal-deep);
+  letter-spacing: -0.01em; text-transform: none;
+  margin-top: 6px; font-weight: 400;
+}
+.home-press-new__track {
+  display: flex;
+  gap: 80px;
+  animation: press-scroll 40s linear infinite;
+  will-change: transform;
+}
+.home-press-new__item {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0.7;
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
+}
+.home-press-new__item:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+.home-press-new__logo {
+  width: 140px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--cc-line-soft);
+  box-shadow: 0 2px 8px rgba(42,47,58,0.06);
+  transition: box-shadow 400ms var(--ease-out), border-color 400ms;
+}
+.home-press-new__item:hover .home-press-new__logo {
+  box-shadow: 0 8px 24px rgba(42,47,58,0.12);
+  border-color: var(--cc-teal);
+}
+.home-press-new__logo img {
+  max-width: 100px;
+  max-height: 50px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.6);
+  transition: filter 400ms;
+}
+.home-press-new__item:hover .home-press-new__logo img {
+  filter: grayscale(0) opacity(1);
+}
+.home-press-new__name {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--cc-ink);
+  letter-spacing: -0.01em;
+}
+@keyframes press-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 600px) {
+  .home-press-new__track { gap: 60px; }
+  .home-press-new__logo { width: 120px; height: 70px; }
+  .home-press-new__logo img { max-width: 80px; max-height: 40px; }
+}
+
+/* ===== TESTIMONIALS COM ANIMAÇÃO VERTICAL ===== */
+.home-testimonials-new {
+  padding: var(--sp-11) 0;
+  background: var(--cc-cream);
+  position: relative;
+  overflow: hidden;
+}
+.home-testimonials-new__head {
+  text-align: center;
+  padding: 0 var(--container-pad);
+  margin-bottom: 60px;
+}
+.home-testimonials-new__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cc-teal-deep);
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+.home-testimonials-new__eyebrow::before,
+.home-testimonials-new__eyebrow::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--cc-teal);
+  display: inline-block;
+}
+.home-testimonials-new__head h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 1.02;
+  color: var(--cc-ink);
+}
+.home-testimonials-new__head h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.home-testimonials-new__columns {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  max-height: 740px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+.home-testimonials-new__column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: testimonials-scroll-up 25s linear infinite;
+  will-change: transform;
+}
+.home-testimonials-new__column:nth-child(2) {
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+.home-testimonials-new__column:nth-child(3) {
+  animation-duration: 28s;
+  animation-delay: -10s;
+}
+.testim-new {
+  width: 380px;
+  padding: 40px 36px 36px;
+  background: var(--cc-paper);
+  border-radius: 4px 32px 4px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid rgba(42,47,58,0.04);
+  box-shadow: 0 4px 16px rgba(42,47,58,0.08);
+  transition: transform 600ms var(--ease-out), box-shadow 600ms var(--ease-out);
+  flex-shrink: 0;
+}
+.testim-new:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(42,47,58,0.15);
+  border-radius: 32px 4px 32px 4px;
+}
+.testim-new::before {
+  content: "\201C";
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 0.5;
+  color: var(--cc-teal);
+  position: absolute;
+  top: 32px;
+  right: 28px;
+  opacity: 0.15;
+  transition: opacity 500ms var(--ease-out);
+}
+.testim-new:hover::before {
+  opacity: 0.3;
+}
+.testim-new::after {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cc-teal), var(--cc-lavender));
+  border-radius: 0 0 2px 2px;
+}
+.testim-new__text {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--cc-ink);
+  position: relative;
+  z-index: 1;
+}
+.testim-new__author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cc-line);
+  margin-top: auto;
+}
+.testim-new__author .name {
+  font-family: var(--ff-display);
+  font-size: 17px;
+  color: var(--cc-ink);
+  font-weight: 500;
+}
+.testim-new__author .loc {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cc-ink-muted);
+}
+@keyframes testimonials-scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@media (max-width: 900px) {
+  .home-testimonials-new__columns {
+    gap: 16px;
+  }
+  .home-testimonials-new__column:nth-child(3) {
+    display: none;
+  }
+  .testim-new {
+    width: 320px;
+    padding: 32px 28px;
+  }
+}
+@media (max-width: 600px) {
+  .home-testimonials-new__columns {
+    max-height: 600px;
+  }
+  .home-testimonials-new__column:nth-child(2) {
+    display: none;
+  }
+  .testim-new {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+</style>
+</head>
+<body>
+<main>
+
+<!-- ===== PRESS STRIP CARROSSEL ===== -->
+<section class="home-press-new">
+  <div class="home-press-new__label">
+    Na imprensa
+    <em>Clarissa Cunha</em>
+  </div>
+  <div class="home-press-new__track">
+    <!-- Primeiro conjunto -->
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Vogue" alt="Vogue Noivas" />
+      </div>
+      <div class="home-press-new__name">Vogue Noivas</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Constance" alt="Constance Zahn" />
+      </div>
+      <div class="home-press-new__name">Constance Zahn</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Casar" alt="Casar é um Barato" />
+      </div>
+      <div class="home-press-new__name">Casar é um Barato</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Icasei" alt="Revista Icasei" />
+      </div>
+      <div class="home-press-new__name">Revista Icasei</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Noiva" alt="Noiva de Papel" />
+      </div>
+      <div class="home-press-new__name">Noiva de Papel</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Zankyou" alt="Zankyou" />
+      </div>
+      <div class="home-press-new__name">Zankyou</div>
+    </div>
+    <!-- Duplicado para loop infinito -->
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Vogue" alt="Vogue Noivas" />
+      </div>
+      <div class="home-press-new__name">Vogue Noivas</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Constance" alt="Constance Zahn" />
+      </div>
+      <div class="home-press-new__name">Constance Zahn</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Casar" alt="Casar é um Barato" />
+      </div>
+      <div class="home-press-new__name">Casar é um Barato</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Icasei" alt="Revista Icasei" />
+      </div>
+      <div class="home-press-new__name">Revista Icasei</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/6BA6A1/FFFFFF?text=Noiva" alt="Noiva de Papel" />
+      </div>
+      <div class="home-press-new__name">Noiva de Papel</div>
+    </div>
+    <div class="home-press-new__item">
+      <div class="home-press-new__logo">
+        <img src="https://via.placeholder.com/100x50/9E85B8/FFFFFF?text=Zankyou" alt="Zankyou" />
+      </div>
+      <div class="home-press-new__name">Zankyou</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS COM SCROLL VERTICAL ===== -->
+<section class="home-testimonials-new">
+  <div class="home-testimonials-new__head">
+    <div class="home-testimonials-new__eyebrow">03 · Depoimentos</div>
+    <h2>O que as noivas <em>dizem</em></h2>
+  </div>
+  <div class="home-testimonials-new__columns">
+    <!-- Coluna 1 -->
+    <div class="home-testimonials-new__column">
+      <div class="testim-new">
+        <p class="testim-new__text">"A Clarissa transformou o nosso casamento em algo muito além do que imaginávamos. Cada detalhe foi pensado com tanto carinho."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Ana & Pedro</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Do primeiro contato até o dia do casamento, a Clarissa foi nossa parceira. Não consigo imaginar sem ela."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Fernanda & Rafael</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"A equipe cuidou de cada detalhe com perfeição. Foi exatamente como sonhamos, mas ainda melhor."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Juliana & Marcos</div>
+            <div class="loc">Noronha · 2023</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicado para loop -->
+      <div class="testim-new">
+        <p class="testim-new__text">"A Clarissa transformou o nosso casamento em algo muito além do que imaginávamos. Cada detalhe foi pensado com tanto carinho."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Ana & Pedro</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Do primeiro contato até o dia do casamento, a Clarissa foi nossa parceira. Não consigo imaginar sem ela."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Fernanda & Rafael</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"A equipe cuidou de cada detalhe com perfeição. Foi exatamente como sonhamos, mas ainda melhor."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Juliana & Marcos</div>
+            <div class="loc">Noronha · 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Coluna 2 -->
+    <div class="home-testimonials-new__column">
+      <div class="testim-new">
+        <p class="testim-new__text">"Casamos em Noronha com 60 convidados e tudo foi perfeito. A logística era complexa mas a equipe resolveu tudo."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Mariana & Lucas</div>
+            <div class="loc">Fernando de Noronha · 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"A assessoria foi impecável do início ao fim. Pudemos aproveitar cada momento sem preocupações."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Carolina & Felipe</div>
+            <div class="loc">Carneiros · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Realizamos nosso sonho de casar na praia com a ajuda da Clarissa. Foi mágico e inesquecível."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Beatriz & André</div>
+            <div class="loc">Alagoas · 2023</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicado -->
+      <div class="testim-new">
+        <p class="testim-new__text">"Casamos em Noronha com 60 convidados e tudo foi perfeito. A logística era complexa mas a equipe resolveu tudo."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Mariana & Lucas</div>
+            <div class="loc">Fernando de Noronha · 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"A assessoria foi impecável do início ao fim. Pudemos aproveitar cada momento sem preocupações."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Carolina & Felipe</div>
+            <div class="loc">Carneiros · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Realizamos nosso sonho de casar na praia com a ajuda da Clarissa. Foi mágico e inesquecível."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Beatriz & André</div>
+            <div class="loc">Alagoas · 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Coluna 3 -->
+    <div class="home-testimonials-new__column">
+      <div class="testim-new">
+        <p class="testim-new__text">"A Clarissa entendeu exatamente o que queríamos e superou todas as expectativas. Recomendamos de olhos fechados."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Camila & Rodrigo</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Nosso casamento foi um sonho realizado graças à dedicação e profissionalismo da equipe."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Larissa & Bruno</div>
+            <div class="loc">Bahia · 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Cada momento foi especial. A Clarissa tem um dom para transformar sonhos em realidade."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Patrícia & Thiago</div>
+            <div class="loc">Lisboa · 2024</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicado -->
+      <div class="testim-new">
+        <p class="testim-new__text">"A Clarissa entendeu exatamente o que queríamos e superou todas as expectativas. Recomendamos de olhos fechados."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Camila & Rodrigo</div>
+            <div class="loc">Recife · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Nosso casamento foi um sonho realizado graças à dedicação e profissionalismo da equipe."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Larissa & Bruno</div>
+            <div class="loc">Bahia · 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="testim-new">
+        <p class="testim-new__text">"Cada momento foi especial. A Clarissa tem um dom para transformar sonhos em realidade."</p>
+        <div class="testim-new__author">
+          <div>
+            <div class="name">Patrícia & Thiago</div>
+            <div class="loc">Lisboa · 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="js/site.js"></script>
+</body>
+</html>

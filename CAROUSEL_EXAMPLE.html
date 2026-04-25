@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exemplo Carousel de Notícias</title>
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="stylesheet" href="styles/improvements.css">
+</head>
+<body>
+
+<!-- EXEMPLO DE USO DO CAROUSEL -->
+<section class="news-carousel">
+  <div class="news-carousel__track">
+    
+    <!-- Slide 1 -->
+    <div class="news-carousel__slide is-active">
+      <article class="news-card">
+        <img 
+          src="assets/press/clip-01.jpg" 
+          alt="Matéria Vogue" 
+          class="news-card__image"
+        />
+        <div class="news-card__content">
+          <h3 class="news-card__title">
+            Clarissa Cunha: A arte de transformar sonhos em realidade
+          </h3>
+          <p class="news-card__excerpt">
+            Com mais de 12 anos de experiência, a assessora revela os segredos por trás dos casamentos mais memoráveis do Nordeste.
+          </p>
+          <div class="news-card__meta">
+            <span class="news-card__date">15 Mar 2024</span>
+            <span class="news-card__source">Vogue Brasil</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="news-carousel__slide">
+      <article class="news-card">
+        <img 
+          src="assets/press/clip-02.jpg" 
+          alt="Matéria Constance Zahn" 
+          class="news-card__image"
+        />
+        <div class="news-card__content">
+          <h3 class="news-card__title">
+            Destination weddings: o guia completo para casar em Fernando de Noronha
+          </h3>
+          <p class="news-card__excerpt">
+            Clarissa Cunha compartilha dicas exclusivas para quem sonha em dizer "sim" no paraíso.
+          </p>
+          <div class="news-card__meta">
+            <span class="news-card__date">08 Fev 2024</span>
+            <span class="news-card__source">Constance Zahn</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+    <!-- Slide 3 -->
+    <div class="news-carousel__slide">
+      <article class="news-card">
+        <img 
+          src="assets/press/clip-03.jpg" 
+          alt="Matéria Casar" 
+          class="news-card__image"
+        />
+        <div class="news-card__content">
+          <h3 class="news-card__title">
+            Tendências 2024: o que vai bombar nos casamentos este ano
+          </h3>
+          <p class="news-card__excerpt">
+            A assessora lista as principais tendências que vão dominar as celebrações em 2024.
+          </p>
+          <div class="news-card__meta">
+            <span class="news-card__date">22 Jan 2024</span>
+            <span class="news-card__source">Revista Casar</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+  </div>
+  
+  <!-- Navegação -->
+  <div class="news-carousel__nav">
+    <button class="news-carousel__btn news-carousel__btn--prev" aria-label="Notícia anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    
+    <div class="news-carousel__dots"></div>
+    
+    <button class="news-carousel__btn news-carousel__btn--next" aria-label="Próxima notícia">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<script src="js/news-carousel.js"></script>
+</body>
+</html>

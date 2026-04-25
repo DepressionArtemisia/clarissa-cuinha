@@ -1,0 +1,435 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Festas Infantis · Clarissa Cunha</title>
+<meta name="description" content="Festas infantis exclusivas — 1º aniversário, chá de fraldas, batizado e festas temáticas com a curadoria Clarissa Cunha." />
+<meta name="theme-color" content="#FBF7F1" />
+
+<meta property="og:title" content="Festas Infantis · Clarissa Cunha" />
+<meta property="og:description" content="A mesma curadoria dos grandes casamentos, na escala das crianças. Festas infantis únicas em Recife e destinos exclusivos." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:image" content="assets/infantil/aeroporto-01.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="assets/infantil/aeroporto-01.jpg" />
+
+<link rel="canonical" href="https://www.clarissacunha.com.br/infantil.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ——— Infantil page ——— */
+.infantil-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 80px;
+  gap: 16px;
+  padding: 0 var(--container-pad) var(--sp-10);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.i-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  display: block;
+}
+.i-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.i-card:hover img { transform: scale(1.06); }
+.i-card__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(42,47,58,0.75) 0%, transparent 55%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 28px;
+  opacity: 0.95;
+  transition: background 400ms;
+}
+.i-card:hover .i-card__overlay {
+  background: linear-gradient(to top, rgba(42,47,58,0.88) 0%, transparent 45%);
+}
+.i-card__tag {
+  font-family: var(--ff-mono); font-size: 10px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(251,247,241,0.65); margin-bottom: 6px;
+}
+.i-card__name {
+  font-family: var(--ff-display); font-style: italic; font-weight: 300;
+  font-size: clamp(20px, 2vw, 30px);
+  color: var(--cc-cream); line-height: 1.1; letter-spacing: -0.01em;
+}
+.i-card__arrow {
+  position: absolute; top: 24px; right: 24px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(251,247,241,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 18px;
+  opacity: 0; transform: scale(0.8);
+  transition: opacity 300ms, transform 300ms var(--ease-spring);
+}
+.i-card:hover .i-card__arrow { opacity: 1; transform: scale(1); }
+
+/* Magazine grid placements */
+.i-card--1 { grid-column: 1 / 8; grid-row: 1 / 7; }
+.i-card--2 { grid-column: 8 / 13; grid-row: 1 / 5; }
+.i-card--3 { grid-column: 8 / 10; grid-row: 5 / 9; }
+.i-card--4 { grid-column: 10 / 13; grid-row: 5 / 9; }
+.i-card--5 { grid-column: 1 / 5; grid-row: 7 / 12; }
+.i-card--6 { grid-column: 5 / 9; grid-row: 7 / 12; }
+.i-card--7 { grid-column: 9 / 13; grid-row: 9 / 14; }
+.i-card--8 { grid-column: 1 / 9; grid-row: 12 / 17; }
+
+/* Abordagem section */
+.abordagem-section {
+  background: var(--cc-paper);
+  padding: var(--sp-11) var(--container-pad);
+}
+.abordagem-section__inner {
+  max-width: var(--container-max); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.abordagem-section__text { display: flex; flex-direction: column; gap: 24px; }
+.abordagem-section__text h2 {
+  font-family: var(--ff-display); font-weight: 300;
+  font-size: clamp(26px, 2.5vw, 40px);
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.abordagem-section__text h2 em { font-style: italic; color: var(--cc-lavender-deep); }
+.abordagem-section__text p {
+  font-size: var(--fs-md); line-height: 1.75; color: var(--cc-ink-soft);
+}
+.abordagem-section__text blockquote {
+  padding: 20px 28px; margin: 0;
+  background: var(--cc-cream-warm);
+  border-radius: 4px 24px 4px 24px;
+  font-family: var(--ff-display); font-style: italic; font-weight: 300;
+  font-size: clamp(17px, 1.3vw, 22px); color: var(--cc-ink); line-height: 1.4;
+  position: relative;
+}
+.abordagem-section__text blockquote::before {
+  content: "\201C"; position: absolute; top: 8px; left: 10px;
+  font-family: var(--ff-display); font-size: 42px; line-height: 1;
+  color: var(--cc-teal); opacity: 0.35;
+}
+.abordagem-pillars {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  background: var(--cc-line); border: 1px solid var(--cc-line);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.pillar {
+  background: var(--cc-cream); padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pillar .icon { font-size: 28px; line-height: 1; }
+.pillar h3 { font-family: var(--ff-display); font-weight: 400; font-size: 22px; }
+.pillar p { font-size: var(--fs-sm); color: var(--cc-ink-soft); line-height: 1.6; }
+
+/* Tipos de evento */
+.tipos-section {
+  padding: var(--sp-11) var(--container-pad);
+  max-width: var(--container-max); margin: 0 auto;
+}
+.tipos-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  margin-top: var(--sp-7);
+}
+.tipo-card {
+  border: 1px solid var(--cc-line); border-radius: var(--radius-lg);
+  padding: 36px 28px; display: flex; flex-direction: column; gap: 16px;
+  transition: border-color 300ms, transform 400ms var(--ease-out), box-shadow 400ms;
+  background: var(--cc-cream);
+}
+.tipo-card:hover {
+  border-color: var(--cc-teal); transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+.tipo-card .num {
+  font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--cc-teal);
+}
+.tipo-card h3 {
+  font-family: var(--ff-display); font-weight: 400; font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.1;
+}
+.tipo-card h3 em { font-style: italic; color: var(--cc-lavender-deep); }
+.tipo-card p { font-size: var(--fs-sm); color: var(--cc-ink-soft); line-height: 1.65; flex: 1; }
+
+/* CTA */
+.infantil-cta {
+  background: var(--cc-ink); color: var(--cc-cream);
+  padding: var(--sp-11) var(--container-pad);
+  text-align: center; position: relative; overflow: hidden;
+}
+.infantil-cta::before {
+  content: "alegria";
+  position: absolute; bottom: -0.1em; left: 50%; transform: translateX(-50%);
+  font-family: var(--ff-display); font-style: italic; font-weight: 300;
+  font-size: clamp(120px, 20vw, 360px); color: rgba(251,247,241,0.04);
+  white-space: nowrap; pointer-events: none; letter-spacing: -0.04em;
+}
+.infantil-cta__inner {
+  position: relative; z-index: 1; max-width: 700px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 28px;
+}
+.infantil-cta h2 {
+  font-family: var(--ff-display); font-weight: 300;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.infantil-cta h2 em { font-style: italic; color: var(--cc-lavender-soft); }
+.infantil-cta p { color: rgba(251,247,241,0.7); font-size: var(--fs-md); line-height: 1.65; }
+.infantil-cta__btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .infantil-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 14px; }
+  .i-card--1,.i-card--2,.i-card--3,.i-card--4,
+  .i-card--5,.i-card--6,.i-card--7,.i-card--8 { grid-column: auto; grid-row: span 1; }
+  .i-card--1 { grid-column: 1 / -1; }
+  .abordagem-section__inner { grid-template-columns: 1fr; gap: 48px; }
+  .tipos-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .infantil-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; gap: 12px; padding-left: 20px; padding-right: 20px; }
+  .i-card--1,.i-card--2,.i-card--3,.i-card--4,
+  .i-card--5,.i-card--6,.i-card--7,.i-card--8 { grid-column: 1 / -1 !important; grid-row: auto !important; }
+  .i-card--1 { grid-row: span 2 !important; }
+  .i-card__overlay { opacity: 1; }
+  .abordagem-section,.tipos-section,.infantil-cta { padding-left: 20px !important; padding-right: 20px !important; padding-top: 80px !important; padding-bottom: 80px !important; }
+  .abordagem-pillars { grid-template-columns: 1fr; }
+  .tipos-grid { grid-template-columns: 1fr; }
+  .infantil-cta__btns { flex-direction: column; width: 100%; }
+  .infantil-cta__btns .btn { justify-content: center; width: 100%; }
+}
+@media (max-width: 480px) {
+  .tipos-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <div class="page-hero__crumb">
+        <a href="index.html">Início</a>
+        <span class="sep">·</span>
+        <span>Festas Infantis</span>
+      </div>
+      <div class="page-hero__eyebrow" data-reveal>Curadoria de Celebrações · Desde 2012</div>
+      <h1 data-reveal data-reveal-delay="100">
+        Porque o primeiro<br/>
+        ano merece ser<br/>
+        <em>extraordinário.</em>
+      </h1>
+      <p class="page-hero__lede" data-reveal data-reveal-delay="200">
+        Porque o primeiro ano merece ser celebrado com a mesma excelência do grande dia. Cada festa infantil que assinamos é uma obra singular — uma curadoria de detalhes, emoções e memórias que ficam para sempre no coração da família.
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="container" data-reveal>
+    <div class="stat-row">
+      <div class="stat-cell">
+        <span class="v">+<em>50</em></span>
+        <span class="l">Festas realizadas</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v"><em>8</em></span>
+        <span class="l">Temas exclusivos</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v"><em>12</em></span>
+        <span class="l">Anos de curadoria</span>
+      </div>
+      <div class="stat-cell">
+        <span class="v"><em>100%</em></span>
+        <span class="l">Personalizado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAGAZINE GRID -->
+  <div class="infantil-grid">
+    <a class="i-card i-card--1" href="infantil/aeroporto.html" data-reveal data-cursor="image">
+      <img src="assets/infantil/aeroporto-01.jpg" alt="Pedro Airlaines — Festa Aeroporto" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">3 Anos · Tema Aviação</div>
+        <div class="i-card__name">Pedro Airlaines</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--2" href="infantil/grand-prix-gael.html" data-reveal data-reveal-delay="100" data-cursor="image">
+      <img src="assets/infantil/gael-01.jpg" alt="Grand Prix do Gael — Fórmula 1" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">1 Ano · Fórmula 1</div>
+        <div class="i-card__name">Grand Prix do Gael</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--3" href="orcamento.html" data-reveal data-reveal-delay="200" data-cursor="image">
+      <img src="assets/infantil/astronauta-01.jpg" alt="Festa Astronauta" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Tema Espacial</div>
+        <div class="i-card__name">Astronauta</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--4" href="orcamento.html" data-reveal data-reveal-delay="300" data-cursor="image">
+      <img src="assets/infantil/fabrica-brinquedos-01.jpg" alt="Fábrica de Brinquedos de Natal" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Natal</div>
+        <div class="i-card__name">Fábrica de Brinquedos</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--5" href="orcamento.html" data-reveal data-cursor="image">
+      <img src="assets/infantil/jardim-encantado-01.jpg" alt="Jardim Encantado" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Tema Jardim</div>
+        <div class="i-card__name">Jardim Encantado</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--6" href="orcamento.html" data-reveal data-reveal-delay="100" data-cursor="image">
+      <img src="assets/infantil/carros-01.jpg" alt="Festa Carros" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Tema Carros</div>
+        <div class="i-card__name">Carros</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--7" href="orcamento.html" data-reveal data-reveal-delay="200" data-cursor="image">
+      <img src="assets/infantil/batizado-haras-01.jpg" alt="Batizado de Dudu e Festa Haras" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Batizado + 2 Anos</div>
+        <div class="i-card__name">Batizado Haras</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+    <a class="i-card i-card--8" href="orcamento.html" data-reveal data-cursor="image">
+      <img src="assets/infantil/cha-fraldas-viajante-01.jpg" alt="Chá de Fraldas Baby Viajante" loading="lazy" />
+      <div class="i-card__overlay">
+        <div class="i-card__tag">Chá de Fraldas</div>
+        <div class="i-card__name">Baby Viajante</div>
+      </div>
+      <div class="i-card__arrow">→</div>
+    </a>
+  </div>
+
+  <!-- NOSSA ABORDAGEM -->
+  <section class="abordagem-section">
+    <div class="abordagem-section__inner">
+      <div class="abordagem-section__text">
+        <div class="page-hero__eyebrow" data-reveal>Nossa abordagem</div>
+        <h2 data-reveal data-reveal-delay="100">
+          A mesma <em>excelência</em><br/>
+          dos grandes casamentos,<br/>
+          na escala das crianças
+        </h2>
+        <p data-reveal data-reveal-delay="200">
+          Cada festa infantil que assinamos nasce de uma escuta profunda. Entendemos a personalidade da criança, os sonhos da família e os detalhes que tornam aquele momento verdadeiramente singular. Não existe fórmula — existe curadoria.
+        </p>
+        <p data-reveal data-reveal-delay="300">
+          Da escolha do tema à última lembrancinha, cada elemento é pensado com o mesmo rigor e sensibilidade que dedicamos aos casamentos mais exclusivos. Porque uma criança que completa seu primeiro ano merece uma celebração que ela vai querer ver nas fotos para sempre.
+        </p>
+        <blockquote data-reveal data-reveal-delay="400">
+          "Uma festa infantil bem planejada não é sobre o tema — é sobre a emoção que fica na memória da família por gerações."
+        </blockquote>
+      </div>
+      <div class="abordagem-pillars" data-reveal data-reveal-delay="200">
+        <div class="pillar">
+          <div class="icon">✦</div>
+          <h3>Curadoria exclusiva</h3>
+          <p>Cada tema é desenvolvido de forma única, com fornecedores selecionados e detalhes que ninguém mais vai ter.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">◇</div>
+          <h3>Experiência sensorial</h3>
+          <p>Cores, texturas, aromas e sabores orquestrados para criar uma imersão completa no universo da festa.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">○</div>
+          <h3>Leveza para a família</h3>
+          <p>Você presente em cada momento, sem preocupações. Cuidamos de tudo para que você viva a festa inteiramente.</p>
+        </div>
+        <div class="pillar">
+          <div class="icon">△</div>
+          <h3>Memória que dura</h3>
+          <p>Cada detalhe pensado para ser fotografado, lembrado e contado como uma história inesquecível.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE EVENTO -->
+  <section class="tipos-section">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow t-eyebrow">Tipos de celebração</div>
+      <h2>Para cada <em>momento especial</em></h2>
+      <p>Do batizado ao aniversário temático, cada celebração tem sua linguagem. Nós dominamos todas.</p>
+    </div>
+    <div class="tipos-grid">
+      <div class="tipo-card" data-reveal>
+        <span class="num">01</span>
+        <h3>1º <em>Aniversário</em></h3>
+        <p>O primeiro ano é um marco que merece ser celebrado com grandiosidade. Uma festa que honra a chegada de uma nova vida e a jornada da família.</p>
+        <a href="orcamento.html" class="btn btn--ghost" style="margin-top:auto;">Solicitar orçamento</a>
+      </div>
+      <div class="tipo-card" data-reveal data-reveal-delay="100">
+        <span class="num">02</span>
+        <h3>Chá de <em>Fraldas</em></h3>
+        <p>Uma celebração íntima e sofisticada para receber o bebê que está por vir. Curadoria de detalhes que transformam a espera em poesia.</p>
+        <a href="orcamento.html" class="btn btn--ghost" style="margin-top:auto;">Solicitar orçamento</a>
+      </div>
+      <div class="tipo-card" data-reveal data-reveal-delay="200">
+        <span class="num">03</span>
+        <h3><em>Batizado</em></h3>
+        <p>Um momento sagrado que merece uma celebração à altura. Da cerimônia à festa, cada detalhe pensado com reverência e alegria.</p>
+        <a href="orcamento.html" class="btn btn--ghost" style="margin-top:auto;">Solicitar orçamento</a>
+      </div>
+      <div class="tipo-card" data-reveal data-reveal-delay="300">
+        <span class="num">04</span>
+        <h3>Festa <em>Temática</em></h3>
+        <p>Quando a imaginação não tem limites, a festa também não tem. Temas exclusivos desenvolvidos com a personalidade única de cada criança.</p>
+        <a href="orcamento.html" class="btn btn--ghost" style="margin-top:auto;">Solicitar orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="infantil-cta">
+    <div class="infantil-cta__inner">
+      <div class="page-hero__eyebrow" style="color:rgba(251,247,241,0.5); justify-content:center;" data-reveal>Vamos criar juntos</div>
+      <h2 data-reveal data-reveal-delay="100">
+        Uma festa que vai<br/>
+        durar na <em>memória</em><br/>
+        para sempre
+      </h2>
+      <p data-reveal data-reveal-delay="200">
+        Cada criança é única. Cada festa deve ser também. Conte-nos sobre o seu pequeno e vamos criar juntos uma celebração verdadeiramente inesquecível.
+      </p>
+      <div class="infantil-cta__btns" data-reveal data-reveal-delay="300">
+        <a href="orcamento.html" class="btn btn--teal">
+          Solicitar orçamento
+          <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/site.js"></script>
+</body>
+</html>

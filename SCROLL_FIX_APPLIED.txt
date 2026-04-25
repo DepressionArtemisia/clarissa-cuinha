@@ -1,0 +1,29 @@
+✅ CORREÇÃO DE SCROLL APLICADA!
+
+O que foi corrigido:
+
+1. ✅ JavaScript força scroll para o topo ao carregar
+2. ✅ history.scrollRestoration = 'manual' (previne scroll automático)
+3. ✅ window.scrollTo(0, 0) em 3 momentos diferentes
+4. ✅ Header com background semi-transparente
+5. ✅ Border-bottom no header para separação visual
+6. ✅ overflow-x: hidden no body (previne scroll horizontal)
+
+TESTE AGORA:
+
+1. Recarregue COMPLETAMENTE a página: Ctrl+Shift+R ou Cmd+Shift+R
+2. Ou feche e abra novamente: http://localhost:3000/
+3. A página DEVE começar no topo mostrando:
+   - Logo Clarissa Cunha
+   - Menu de navegação
+   - Botão burger (mobile)
+   - Início do conteúdo
+
+Se ainda não funcionar:
+- Limpe o cache do navegador
+- Tente em modo anônimo/privado
+- Ou me avise para tentar outra solução
+
+IMPORTANTE: 
+O problema pode ser cache do navegador. 
+Force um reload completo!

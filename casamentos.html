@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casamentos · Clarissa Cunha</title>
+<meta name="description" content="Portfólio de casamentos — de Noronha a Lisboa, cada história de amor contada com leveza e excelência." />
+
+<meta property="og:title" content="Casamentos · Clarissa Cunha — Portfolio" />
+<meta property="og:description" content="Portfolio de casamentos — de Noronha a Lisboa, cada historia de amor contada com leveza e excelencia. Mais de 500 casamentos realizados." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/brand/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#FBF7F1" />
+<link rel="canonical" href="https://www.clarissacunha.com.br/casamentos.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="stylesheet" href="styles/wedding-music.css">
+<link rel="stylesheet" href="styles/wedding-loader.css">
+<link rel="stylesheet" href="styles/wedding-likes.css">
+<link rel="stylesheet" href="styles/wedding-cta-banner.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ——— Casamentos page ——— */
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto 64px;
+}
+.filter-btn {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--cc-line);
+  color: var(--cc-ink-soft);
+  background: transparent;
+  cursor: pointer;
+  transition: all 300ms var(--ease-out);
+}
+.filter-btn:hover,
+.filter-btn.is-active {
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  border-color: var(--cc-ink);
+}
+
+/* ——— Featured wedding (full-width) ——— */
+.wedding-featured {
+  padding: 0 var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto 80px;
+}
+.wedding-featured__card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 16/7;
+  cursor: pointer;
+}
+.wedding-featured__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1200ms var(--ease-out);
+}
+.wedding-featured__card:hover img {
+  transform: scale(1.04);
+}
+.wedding-featured__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42,47,58,0.75) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 48px 56px;
+}
+.wedding-featured__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+.wedding-featured__text .tag {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.6);
+  margin-bottom: 10px;
+}
+.wedding-featured__text h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(30px, 3vw, 48px);
+  color: var(--cc-cream);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.wedding-featured__text h2 em {
+  font-style: italic;
+}
+.wedding-featured__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+.wedding-featured__meta span {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.7);
+}
+.wedding-featured__meta .btn {
+  font-size: 11px;
+  padding: 12px 22px;
+}
+
+/* ——— Magazine grid ——— */
+.portfolio-section {
+  padding: 0 var(--container-pad) var(--sp-10);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 80px;
+  gap: 16px;
+}
+
+/* Card base */
+.p-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+}
+.p-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.p-card:hover img {
+  transform: scale(1.06);
+}
+.p-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42,47,58,0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 400ms;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+}
+.p-card:hover .p-card__overlay {
+  opacity: 1;
+}
+.p-card__label {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--cc-cream);
+  line-height: 1.1;
+}
+.p-card__sub {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.65);
+  margin-top: 4px;
+}
+
+/* Grid layout — magazine style */
+.p-card--a { grid-column: 1 / 8; grid-row: 1 / 7; }
+.p-card--b { grid-column: 8 / 13; grid-row: 1 / 5; }
+.p-card--c { grid-column: 8 / 10; grid-row: 5 / 9; }
+.p-card--d { grid-column: 10 / 13; grid-row: 5 / 9; }
+.p-card--e { grid-column: 1 / 5; grid-row: 7 / 12; }
+.p-card--f { grid-column: 5 / 9; grid-row: 7 / 12; }
+.p-card--g { grid-column: 9 / 13; grid-row: 9 / 14; }
+.p-card--h { grid-column: 1 / 6; grid-row: 12 / 17; }
+.p-card--i { grid-column: 6 / 9; grid-row: 12 / 17; }
+
+/* ——— Destination section ——— */
+.destination-section {
+  background: var(--cc-paper);
+  padding: var(--sp-11) var(--container-pad);
+}
+.destination-section__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: var(--sp-7);
+}
+.dest-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.dest-card:hover img {
+  transform: scale(1.06);
+}
+.dest-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42,47,58,0.8) 0%, transparent 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+}
+.dest-card__loc {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251,247,241,0.6);
+  margin-bottom: 8px;
+}
+.dest-card__name {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(24px, 2.5vw, 36px);
+  color: var(--cc-cream);
+  line-height: 1.1;
+}
+.dest-card__detail {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  color: rgba(251,247,241,0.7);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ——— Thumbnails strip ——— */
+.thumbs-section {
+  padding: var(--sp-10) var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.thumbs-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: var(--sp-6);
+}
+.thumb-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-out);
+}
+.thumb-item:hover img {
+  transform: scale(1.08);
+}
+
+/* ——— CTA ——— */
+.portfolio-cta {
+  text-align: center;
+  padding: var(--sp-11) var(--container-pad);
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-cta::before {
+  content: "sim";
+  position: absolute;
+  bottom: -0.1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(200px, 30vw, 500px);
+  font-weight: 300;
+  color: rgba(251,247,241,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.portfolio-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.portfolio-cta h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.portfolio-cta h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-soft);
+}
+.portfolio-cta p {
+  color: rgba(251,247,241,0.7);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+}
+.portfolio-cta__btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+  }
+  .p-card--a { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .p-card--b { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .p-card--c { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .p-card--d { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .p-card--e { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .p-card--f { grid-column: 1 / 2; grid-row: 4 / 5; }
+  .p-card--g { grid-column: 2 / 3; grid-row: 4 / 5; }
+  .p-card--h { grid-column: 1 / 2; grid-row: 5 / 6; }
+  .p-card--i { grid-column: 2 / 3; grid-row: 5 / 6; }
+  .destination-grid { grid-template-columns: 1fr 1fr; }
+  .thumbs-grid { grid-template-columns: repeat(3, 1fr); }
+  .wedding-featured__card { aspect-ratio: 4/3; }
+  .wedding-featured__overlay { padding: 28px 32px; }
+  .wedding-featured__info { flex-direction: column; align-items: flex-start; }
+  .wedding-featured__meta { align-items: flex-start; text-align: left; }
+}
+@media (max-width: 600px) {
+  .destination-grid { grid-template-columns: 1fr; }
+  .thumbs-grid { grid-template-columns: repeat(2, 1fr); }
+  .filter-bar { gap: 8px; }
+}
+@media (max-width: 480px) {
+  .thumbs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== MOBILE CASAMENTOS ULTRA PREMIUM ===== */
+@media (max-width: 600px) {
+  .wedding-featured,
+  .portfolio-section,
+  .destination-section,
+  .thumbs-section,
+  .portfolio-cta {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .destination-section,
+  .thumbs-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  .portfolio-cta { padding-top: 80px !important; padding-bottom: 80px !important; }
+  
+  /* Featured card com glassmorphism */
+  .wedding-featured__card { 
+    aspect-ratio: 3/4; 
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(42,47,58,0.3) !important;
+    overflow: hidden;
+  }
+  .wedding-featured__overlay { 
+    padding: 28px 24px !important;
+    background: linear-gradient(180deg, transparent 30%, rgba(42,47,58,0.92) 100%) !important;
+  }
+  .wedding-featured__text h2 { 
+    font-size: clamp(32px, 9vw, 48px) !important;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* Filter bar premium */
+  .filter-bar { 
+    padding: 0 20px !important; 
+    gap: 10px !important;
+    margin-bottom: 56px !important;
+  }
+  .filter-btn { 
+    padding: 12px 18px !important; 
+    font-size: 10px !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  }
+  .filter-btn:active {
+    transform: scale(0.95) !important;
+  }
+  .filter-btn.is-active {
+    box-shadow: 0 4px 16px rgba(42,47,58,0.2) !important;
+  }
+  
+  /* Portfolio grid com hierarquia visual */
+  .portfolio-grid { 
+    grid-template-columns: 1fr !important; 
+    grid-auto-rows: 280px !important; 
+    gap: 16px !important;
+  }
+  .p-card--a, .p-card--b, .p-card--c, .p-card--d,
+  .p-card--e, .p-card--f, .p-card--g, .p-card--h, .p-card--i {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(42,47,58,0.15) !important;
+  }
+  .p-card--a { 
+    grid-row: span 2 !important;
+    box-shadow: 0 12px 48px rgba(42,47,58,0.25) !important;
+  }
+  .p-card__overlay { 
+    opacity: 1 !important;
+    background: linear-gradient(180deg, transparent 40%, rgba(42,47,58,0.88) 100%) !important;
+  }
+  .p-card__label {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  
+  /* Destination cards premium */
+  .destination-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 20px !important;
+  }
+  .dest-card { 
+    aspect-ratio: 4/3 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 12px 40px rgba(42,47,58,0.2) !important;
+  }
+  .dest-card__overlay {
+    background: linear-gradient(180deg, transparent 30%, rgba(42,47,58,0.9) 100%) !important;
+    padding: 32px 24px !important;
+  }
+  .dest-card__name {
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+  
+  /* Thumbnails com spacing melhorado */
+  .thumbs-grid { 
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 12px !important;
+  }
+  .thumb-item {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(42,47,58,0.12) !important;
+  }
+  
+  /* CTA com glassmorphism */
+  .portfolio-cta__btns { 
+    flex-direction: column !important; 
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .portfolio-cta__btns .btn { 
+    justify-content: center !important; 
+    width: 100% !important;
+    padding: 16px 28px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+  }
+  .portfolio-cta h2 { 
+    font-size: clamp(36px, 10vw, 56px) !important;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbs-grid { 
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ——— HERO ——— -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <div class="page-hero__crumb">
+        <a href="index.html">Início</a>
+        <span class="sep">·</span>
+        <span>Casamentos</span>
+      </div>
+      <div class="page-hero__eyebrow" data-reveal>Portfólio</div>
+      <h1 data-reveal data-reveal-delay="100">
+        Histórias de amor<br/>
+        <em>contadas</em> com<br/>
+        <span class="teal">leveza</span>
+      </h1>
+      <p class="page-hero__lede" data-reveal data-reveal-delay="200">
+        Mais de 500 casamentos realizados em destinos únicos — de Noronha a Lisboa, cada um com a assinatura de quem transforma planejamento em poesia.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— FILTER BAR ——— -->
+  <div class="filter-bar" data-reveal>
+    <button class="filter-btn is-active">Todos</button>
+    <button class="filter-btn">Praia</button>
+    <button class="filter-btn">Destination</button>
+    <button class="filter-btn">Urbano</button>
+    <button class="filter-btn">Noronha</button>
+    <button class="filter-btn">Internacional</button>
+  </div>
+
+  <!-- ——— FEATURED ——— -->
+  <div class="wedding-featured" data-reveal>
+    <a href="casamento-castelinho.html" class="wedding-featured__card" data-cursor="image">
+      <img src="assets/portfolio/wedding-hero-01.jpg" alt="Casamento em destaque" />
+      <div class="wedding-featured__overlay">
+        <div class="wedding-featured__info">
+          <div class="wedding-featured__text">
+            <div class="tag">Destaque · Destination Wedding</div>
+            <h2>Casamento <em>Castelinho</em></h2>
+          </div>
+          <div class="wedding-featured__meta">
+            <span>Recife · Pernambuco</span>
+            <span>200 convidados</span>
+            <span class="btn btn--ghost" style="color:var(--cc-cream); border-color:rgba(251,247,241,0.3); pointer-events: none;">Ver história</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ——— MAGAZINE GRID ——— -->
+  <div class="portfolio-section">
+    <div class="portfolio-grid">
+      <a href="casamento-castelinho.html" class="p-card p-card--a" data-reveal data-cursor="image">
+        <img src="assets/portfolio/castelinho.jpg" alt="Casamento Castelinho" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Castelinho</div>
+            <div class="p-card__sub">Recife · PE</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--b" data-reveal data-reveal-delay="100" data-cursor="image">
+        <img src="assets/portfolio/garrido.jpg" alt="Casamento Garrido" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Garrido</div>
+            <div class="p-card__sub">Recife · PE</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--c" data-reveal data-reveal-delay="200" data-cursor="image">
+        <img src="assets/portfolio/praiano-a.jpg" alt="Casamento Praiano" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Praiano I</div>
+            <div class="p-card__sub">Praia · AL</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--d" data-reveal data-reveal-delay="300" data-cursor="image">
+        <img src="assets/portfolio/praiano-b.jpg" alt="Casamento Praiano B" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Praiano II</div>
+            <div class="p-card__sub">Praia · AL</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--e" data-reveal data-cursor="image">
+        <img src="assets/portfolio/na-praia.jpg" alt="Na Praia" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Na Praia</div>
+            <div class="p-card__sub">Destination · BA</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--f" data-reveal data-reveal-delay="100" data-cursor="image">
+        <img src="assets/portfolio/pe-na-areia.jpg" alt="Pé na Areia" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Pé na Areia</div>
+            <div class="p-card__sub">Destination · PE</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--g" data-reveal data-reveal-delay="200" data-cursor="image">
+        <img src="assets/portfolio/carneiros.jpg" alt="Carneiros" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Carneiros</div>
+            <div class="p-card__sub">Praia dos Carneiros · PE</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--h" data-reveal data-cursor="image">
+        <img src="assets/portfolio/wedding-hero-02.jpg" alt="Wedding Hero" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Destination</div>
+            <div class="p-card__sub">Noronha · PE</div>
+          </div>
+        </div>
+      </a>
+      <a href="casamento-castelinho.html" class="p-card p-card--i" data-reveal data-reveal-delay="100" data-cursor="image">
+        <img src="assets/portfolio/thumb-01.jpg" alt="Casamento" />
+        <div class="p-card__overlay">
+          <div>
+            <div class="p-card__label">Cerimônia</div>
+            <div class="p-card__sub">Recife · PE</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ——— DESTINATION WEDDINGS ——— -->
+  <section class="destination-section">
+    <div class="destination-section__inner">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow t-eyebrow">Destination Weddings</div>
+        <h2>Casamentos em <em>destinos únicos</em></h2>
+        <p>Cada destino tem sua magia. Nossa expertise garante que a logística nunca tire o brilho do momento.</p>
+      </div>
+      <div class="destination-grid">
+        <div class="dest-card" data-reveal data-cursor="image">
+          <img src="assets/portfolio/na-praia.jpg" alt="Noronha" />
+          <div class="dest-card__overlay">
+            <div class="dest-card__loc">Pernambuco · Brasil</div>
+            <div class="dest-card__name">Fernando de Noronha</div>
+            <div class="dest-card__detail">O paraíso ecológico mais exclusivo do Brasil, com cerimônias ao pôr do sol.</div>
+          </div>
+        </div>
+        <div class="dest-card" data-reveal data-reveal-delay="100" data-cursor="image">
+          <img src="assets/portfolio/carneiros.jpg" alt="Alagoas" />
+          <div class="dest-card__overlay">
+            <div class="dest-card__loc">Alagoas · Brasil</div>
+            <div class="dest-card__name">Maragogi & Maceió</div>
+            <div class="dest-card__detail">Praias de águas cristalinas e cenários naturais de tirar o fôlego.</div>
+          </div>
+        </div>
+        <div class="dest-card" data-reveal data-reveal-delay="200" data-cursor="image">
+          <img src="assets/portfolio/pe-na-areia.jpg" alt="Lisboa" />
+          <div class="dest-card__overlay">
+            <div class="dest-card__loc">Portugal · Europa</div>
+            <div class="dest-card__name">Lisboa & Arredores</div>
+            <div class="dest-card__detail">A elegância histórica de Portugal como cenário para histórias de amor internacionais.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— THUMBNAILS ——— -->
+  <section class="thumbs-section">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow t-eyebrow">Momentos</div>
+      <h2>Cada detalhe <em>importa</em></h2>
+    </div>
+    <div class="thumbs-grid">
+      <div class="thumb-item" data-reveal data-cursor="image"><img src="assets/portfolio/thumb-01.jpg" alt="" /></div>
+      <div class="thumb-item" data-reveal data-reveal-delay="100" data-cursor="image"><img src="assets/portfolio/thumb-02.jpg" alt="" /></div>
+      <div class="thumb-item" data-reveal data-reveal-delay="200" data-cursor="image"><img src="assets/portfolio/thumb-03.jpg" alt="" /></div>
+      <div class="thumb-item" data-reveal data-reveal-delay="300" data-cursor="image"><img src="assets/portfolio/thumb-04.jpg" alt="" /></div>
+      <div class="thumb-item" data-reveal data-reveal-delay="400" data-cursor="image"><img src="assets/portfolio/thumb-05.jpg" alt="" /></div>
+      <div class="thumb-item" data-reveal data-reveal-delay="500" data-cursor="image"><img src="assets/portfolio/thumb-06.jpg" alt="" /></div>
+    </div>
+  </section>
+
+  <!-- ——— CTA ——— -->
+  <section class="portfolio-cta">
+    <div class="portfolio-cta__inner">
+      <div class="page-hero__eyebrow" style="color:rgba(251,247,241,0.5); justify-content:center;" data-reveal>Próximo capítulo</div>
+      <h2 data-reveal data-reveal-delay="100">
+        Sua história<br/>
+        começa com um <em>sim</em>
+      </h2>
+      <p data-reveal data-reveal-delay="200">
+        Vamos criar juntos um casamento que reflita exatamente quem vocês são — com leveza, alegria e cada detalhe no lugar certo.
+      </p>
+      <div class="portfolio-cta__btns" data-reveal data-reveal-delay="300">
+        <a href="orcamento.html" class="btn btn--teal">
+          Solicitar orçamento
+          <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+  // Filter buttons (visual only)
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+</script>
+<script src="js/wedding-loader.js"></script>
+<script src="js/wedding-music.js"></script>
+<script src="js/wedding-likes.js"></script>
+<script src="js/wedding-cta-banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assessoria Online de Casamentos &middot; Clarissa Cunha</title>
+<meta name="description" content="O metodo Clarissa Cunha num formato autoguiado. Para noivas que querem organizar o casamento com leveza, de qualquer lugar do mundo." />
+<meta name="theme-color" content="#FBF7F1" />
+
+<meta property="og:title" content="Assessoria Online · Clarissa Cunha" />
+<meta property="og:description" content="O método Clarissa Cunha num formato autoguiado, com suporte semanal. Organize o casamento dos seus sonhos de qualquer lugar." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:image" content="assets/brand/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="assets/brand/logo.png" />
+
+<link rel="canonical" href="https://www.clarissacunha.com.br/assessoria-online.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/page.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ===== HERO ===== */
+.ao-hero {
+  padding: 140px var(--container-pad) 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.ao-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 90% at 0% 0%, rgba(158,133,184,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 90% at 100% 100%, rgba(107,166,161,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.ao-hero__text { position: relative; z-index: 2; }
+.ao-hero__badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px;
+  background: var(--cc-lavender-mist);
+  border: 1px solid var(--cc-lavender-soft);
+  border-radius: 999px;
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--cc-lavender-deep); font-weight: 500;
+  margin-bottom: 28px;
+}
+.ao-hero__badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cc-lavender-deep);
+  animation: ao-pulse 1.6s ease-in-out infinite;
+}
+@keyframes ao-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);} }
+.ao-hero h1 {
+  font-family: var(--ff-display); font-weight: 300;
+  font-size: clamp(48px, 6.5vw, 100px);
+  line-height: 0.97; letter-spacing: -0.025em;
+  color: var(--cc-ink); margin-bottom: 28px;
+}
+.ao-hero h1 em { font-style: italic; color: var(--cc-lavender-deep); display: block; }
+.ao-hero h1 .teal { color: var(--cc-teal-deep); font-style: italic; }
+.ao-hero__lede {
+  font-family: var(--ff-display); font-style: italic; font-weight: 300;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.5; color: var(--cc-ink-soft);
+  max-width: 520px; margin-bottom: 32px;
+}
+.ao-hero__social {
+  display: flex; align-items: center; gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--cc-line);
+  border-bottom: 1px solid var(--cc-line);
+  margin-bottom: 32px;
+}
+.ao-hero__stars { color: var(--cc-lavender-deep); font-size: 20px; letter-spacing: 2px; }
+.ao-hero__social .rate { font-family: var(--ff-display); font-size: 22px; color: var(--cc-ink); font-weight: 400; }
+.ao-hero__social .who { font-size: 12px; color: var(--cc-ink-muted); letter-spacing: 0.15em; text-transform: uppercase; }
+.ao-hero__price {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.ao-hero__price-main {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ao-hero__price .old {
+  font-size: 16px; color: var(--cc-ink-muted);
+  text-decoration: line-through;
+}
+.ao-hero__price .now {
+  font-family: var(--ff-display);
+  font-size: clamp(40px, 5vw, 68px);
+  color: var(--cc-teal-deep); font-weight: 400; line-height: 1;
+}
+.ao-hero__price .inst {
+  font-family: var(--ff-sans); font-size: 14px;
+  color: var(--cc-ink-soft); line-height: 1.4;
+}
+.ao-hero__price .inst strong {
+  color: var(--cc-ink); font-weight: 600; font-size: 15px;
+  margin-right: 4px;
+}
+.ao-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.ao-hero__btn-main {
+  background: var(--cc-ink); color: var(--cc-cream);
+  padding: 18px 32px; border-radius: var(--radius-pill);
+  font-family: var(--ff-sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 12px;
+  transition: all 400ms var(--ease-out);
+}
+.ao-hero__btn-main:hover { background: var(--cc-lavender-deep); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.ao-hero__trust {
+  font-size: 12px; color: var(--cc-ink-soft);
+  display: flex; gap: 14px; flex-wrap: wrap;
+  font-family: var(--ff-sans);
+}
+.ao-hero__trust span { display: inline-flex; align-items: center; gap: 6px; }
+.ao-hero__trust svg { width: 14px; height: 14px; color: var(--cc-teal); flex-shrink: 0; }
+
+/* Hero visual */
+.ao-hero__visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+}
+.ao-hero__mockup {
+  position: absolute; inset: 0;
+  background: var(--cc-cream-warm);
+  border-radius: 20px;
+  box-shadow: var(--shadow-float);
+  overflow: hidden;
+  transform: rotate(-2deg);
+  transition: transform 900ms var(--ease-out);
+}
+.ao-hero__visual:hover .ao-hero__mockup { transform: rotate(-1deg) scale(1.01); }
+.ao-hero__mockup-browser {
+  height: 28px; background: var(--cc-ink);
+  display: flex; align-items: center; gap: 6px; padding: 0 12px;
+}
+.ao-hero__mockup-browser span { width: 8px; height: 8px; border-radius: 50%; }
+.ao-hero__mockup-browser span:nth-child(1) { background: #ff6b6b; }
+.ao-hero__mockup-browser span:nth-child(2) { background: #ffd866; }
+.ao-hero__mockup-browser span:nth-child(3) { background: #7dd87d; }
+.ao-hero__mockup-browser .url {
+  flex: 1; margin: 0 14px; max-width: 220px; height: 14px;
+  border-radius: 7px; background: rgba(251,247,241,0.15);
+  display: flex; align-items: center; padding: 0 10px;
+  font-family: var(--ff-mono); font-size: 9px; color: rgba(251,247,241,0.6);
+}
+.ao-hero__mockup-body { padding: 24px 20px; height: calc(100% - 28px); overflow: hidden; }
+.ao-hero__mockup-title {
+  font-family: var(--ff-display); font-style: italic; font-weight: 300;
+  font-size: 28px; color: var(--cc-teal-deep); line-height: 1.05; margin-bottom: 4px;
+}
+.ao-hero__mockup-sub { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cc-ink-muted); margin-bottom: 18px; }
+.ao-hero__mockup-modules { display: flex; flex-direction: column; gap: 8px; }
+.ao-mod {
+  display: grid; grid-template-columns: 32px 1fr 44px; gap: 12px; align-items: center;
+  padding: 12px 14px;
+  background: var(--cc-cream);
+  border: 1px solid var(--cc-line-soft);
+  border-radius: 10px;
+}
+.ao-mod__n {
+  font-family: var(--ff-mono); font-size: 9px; color: var(--cc-teal);
+  border: 1px solid var(--cc-teal); border-radius: 50%;
+  width: 28px; height: 28px; display: grid; place-items: center;
+}
+.ao-mod__t { font-family: var(--ff-display); font-size: 15px; color: var(--cc-ink); font-weight: 400; }
+.ao-mod__t span { font-size: 9px; color: var(--cc-ink-muted); letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-top: 1px; font-family: var(--ff-sans); }
+.ao-mod__p { height: 4px; background: var(--cc-line); border-radius: 2px; position: relative; overflow: hidden; }
+.ao-mod__p::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; background: var(--cc-teal); width: var(--pv, 65%); }
+.ao-hero__badge-float {
+  position: absolute; right: -16px; bottom: 32px;
+  width: 130px; height: 130px;
+  background: var(--cc-teal); color: white;
+  border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  box-shadow: var(--shadow-card);
+  transform: rotate(8deg);
+  animation: ao-float 5s ease-in-out infinite;
+  z-index: 3;
+}
+@keyframes ao-float { 0%,100%{transform:rotate(8deg) translateY(0);}50%{transform:rotate(10deg) translateY(-8px);} }
+.ao-hero__badge-float .off { font-family: var(--ff-display); font-style: italic; font-size: 38px; line-height: 1; }
+.ao-hero__badge-float .lbl { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 2px; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .ao-hero {
+    grid-template-columns: 1fr;
+    padding-top: 110px;
+    min-height: auto;
+    gap: 48px;
+  }
+  .ao-hero__visual {
+    aspect-ratio: 4/3;
+    max-width: 100%;
+  }
+  .ao-hero__badge-float { width: 90px; height: 90px; right: -8px; bottom: 8px; }
+  .ao-hero__badge-float .off { font-size: 26px; }
+}
+@media (max-width: 600px) {
+  .ao-hero h1 { font-size: clamp(40px, 10vw, 64px); }
+  .ao-hero__actions { flex-direction: column; }
+  .ao-hero__btn-main { justify-content: center; }
+  .ao-hero__trust { flex-direction: column; gap: 8px; }
+}
+
+/* ===== TRUST BAR ===== */
+.ao-trust { padding: 24px var(--container-pad); background: var(--cc-ink); color: var(--cc-cream); }
+.ao-trust__inner { max-width: var(--container-max); margin: 0 auto; display: flex; justify-content: space-around; gap: 24px; flex-wrap: wrap; }
+.ao-trust__item { display: flex; align-items: center; gap: 12px; }
+.ao-trust__item svg { width: 20px; height: 20px; color: var(--cc-lavender-soft); flex-shrink: 0; }
+.ao-trust__item .t { font-family: var(--ff-display); font-size: 16px; color: var(--cc-cream); }
+.ao-trust__item .s { font-size: 10px; color: rgba(251,247,241,0.6); letter-spacing: 0.2em; text-transform: uppercase; }
+@media (max-width: 600px) { .ao-trust__inner { gap: 16px; } .ao-trust__item { flex: 1 1 45%; } }
+
+/* ===== PARA QUEM ===== */
+.ao-for { padding: var(--sp-11) var(--container-pad); background: var(--cc-cream); }
+.ao-for__head { max-width: 980px; margin: 0 auto 64px; text-align: center; }
+.ao-for__grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--cc-line); border: 1px solid var(--cc-line); border-radius: 16px; overflow: hidden; }
+.ao-for__col { padding: 40px 36px; background: var(--cc-cream); }
+.ao-for__col--yes { background: var(--cc-cream-warm); }
+.ao-for__col h3 { font-family: var(--ff-display); font-weight: 300; font-size: 28px; margin-bottom: 24px; }
+.ao-for__col--yes h3 { color: var(--cc-teal-deep); }
+.ao-for__col--no h3 { color: var(--cc-ink-muted); }
+.ao-for__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.ao-for__list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; color: var(--cc-ink); }
+.ao-for__col--no .ao-for__list li { color: var(--cc-ink-soft); }
+.ao-for__list li .ic { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; display: inline-block; margin-top: 2px; }
+.ao-for__col--yes .ao-for__list li .ic { background: var(--cc-teal); }
+.ao-for__col--no .ao-for__list li .ic { background: rgba(42,47,58,0.15); }
+@media (max-width: 800px) { .ao-for__grid { grid-template-columns: 1fr; } .ao-for__col { padding: 32px 24px; } }
+
+/* ===== MODULOS ===== */
+.ao-modules { padding: var(--sp-11) var(--container-pad); background: var(--cc-paper); }
+.ao-modules__head { max-width: var(--container-max); margin: 0 auto 64px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: end; }
+.ao-module-row { display: grid; grid-template-columns: 90px 1fr 1fr 60px; gap: 40px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--cc-line); transition: transform 400ms var(--ease-out), background 400ms var(--ease-out); cursor: pointer; }
+.ao-module-row:hover { transform: translateX(20px); background: linear-gradient(90deg, transparent 0%, rgba(107,166,161,0.06) 10%, transparent 100%); }
+.ao-module-row__n { font-family: var(--ff-mono); font-size: 11px; color: var(--cc-teal); letter-spacing: 0.15em; }
+.ao-module-row__t { font-family: var(--ff-display); font-weight: 300; font-size: clamp(24px, 2.2vw, 36px); line-height: 1.05; color: var(--cc-ink); }
+.ao-module-row__t em { font-style: italic; color: var(--cc-lavender-deep); }
+.ao-module-row__d { color: var(--cc-ink-soft); font-size: 14px; line-height: 1.55; }
+.ao-module-row__arr { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--cc-line); display: grid; place-items: center; justify-self: end; transition: all 400ms; }
+.ao-module-row:hover .ao-module-row__arr { background: var(--cc-teal); border-color: var(--cc-teal); transform: rotate(-45deg); }
+.ao-module-row:hover .ao-module-row__arr svg { color: white; }
+@media (max-width: 900px) { .ao-modules__head { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 700px) {
+  .ao-module-row { grid-template-columns: 60px 1fr 36px; gap: 16px; }
+  .ao-module-row__d { grid-column: 1 / -1; padding-left: 76px; }
+}
+
+/* ===== BONUS ===== */
+.ao-bonus { padding: var(--sp-11) var(--container-pad); background: var(--cc-cream); }
+.ao-bonus__grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+@media (max-width: 900px) { .ao-bonus__grid { grid-template-columns: 1fr; } }
+
+/* ===== DEPOIMENTOS ===== */
+.ao-testim { padding: var(--sp-11) var(--container-pad); background: var(--cc-ink); color: var(--cc-cream); position: relative; overflow: hidden; }
+.ao-testim__grid { max-width: var(--container-max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; }
+@media (max-width: 900px) { .ao-testim__grid { grid-template-columns: 1fr; } }
+
+/* ===== FAQ ===== */
+.ao-faq { padding: var(--sp-11) var(--container-pad); background: var(--cc-cream); }
+.ao-faq__inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 80px; }
+@media (max-width: 900px) { .ao-faq__inner { grid-template-columns: 1fr; gap: 32px; } .ao-faq__side { position: static !important; } }
+
+/* ===== CHECKOUT ===== */
+.ao-checkout { padding: var(--sp-11) var(--container-pad) var(--sp-8); background: linear-gradient(180deg, var(--cc-cream) 0%, var(--cc-cream-warm) 100%); position: relative; overflow: hidden; }
+.ao-checkout__wrap { max-width: 1200px; margin: 0 auto; background: var(--cc-cream); border-radius: 24px; box-shadow: 0 60px 120px -50px rgba(42,47,58,0.25); overflow: hidden; display: grid; grid-template-columns: 1.3fr 1fr; position: relative; z-index: 1; }
+@media (max-width: 900px) { .ao-checkout__wrap { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .ao-checkout__wrap > div { padding: 32px 24px !important; } }
+
+/* ===== PAY OPTS ===== */
+.ck-pay { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 24px; }
+.ck-pay__opt { padding: 16px 12px; border: 1.5px solid var(--cc-line); border-radius: 12px; background: var(--cc-cream); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 300ms; }
+.ck-pay__opt:hover { border-color: var(--cc-teal-soft); }
+.ck-pay__opt.is-selected { border-color: var(--cc-teal); background: var(--cc-cream-warm); }
+.ck-pay__opt .lbl { font-family: var(--ff-sans); font-size: 12px; font-weight: 500; color: var(--cc-ink); }
+.ck-pay__opt .sub { font-size: 10px; color: var(--cc-ink-muted); letter-spacing: 0.15em; text-transform: uppercase; }
+@media (max-width: 480px) { .ck-pay { grid-template-columns: 1fr; } }
+
+/* ===== GARANTIA ===== */
+.ao-guarantee { padding: var(--sp-9) var(--container-pad); background: var(--cc-cream-warm); text-align: center; }
+
+/* ============================================
+   MOBILE OVERRIDES — assessoria-online
+   ============================================ */
+
+/* Formulario: campos em coluna no mobile */
+.ck-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Modulos: esconder coluna descricao no mobile pequeno */
+@media (max-width: 480px) {
+  .ao-module-row__d { display: none; }
+}
+
+/* Checkout grid: 1 coluna no mobile */
+@media (max-width: 900px) {
+  .ao-checkout__wrap {
+    grid-template-columns: 1fr !important;
+  }
+  /* Summary vai abaixo do form */
+  .ao-checkout__wrap > div:last-child {
+    order: -1;
+  }
+}
+
+/* Formulario campos: 1 coluna no mobile */
+@media (max-width: 600px) {
+  .ck-row {
+    grid-template-columns: 1fr !important;
+  }
+  .ck-pay {
+    grid-template-columns: 1fr !important;
+  }
+  .ck-pay__opt {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    padding: 14px 16px !important;
+  }
+  .ck-pay__opt .lbl { font-size: 14px !important; }
+  .ck-pay__opt .sub { margin-left: auto; }
+}
+
+/* Hero: ajustes finos mobile */
+@media (max-width: 480px) {
+  .ao-hero {
+    padding-top: 100px !important;
+    padding-bottom: 48px !important;
+  }
+  .ao-hero h1 {
+    font-size: clamp(36px, 9vw, 52px) !important;
+  }
+  .ao-hero__badge {
+    font-size: 10px !important;
+    padding: 6px 12px !important;
+  }
+  .ao-hero__price .now {
+    font-size: clamp(36px, 9vw, 52px) !important;
+  }
+  .ao-hero__btn-main {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn.btn--ghost {
+    width: 100%;
+    justify-content: center;
+  }
+  .ao-hero__badge-float {
+    width: 72px !important;
+    height: 72px !important;
+    right: -4px !important;
+    bottom: 4px !important;
+  }
+  .ao-hero__badge-float .off { font-size: 20px !important; }
+  .ao-hero__badge-float .lbl { font-size: 8px !important; }
+}
+
+/* Trust bar: 2 colunas no mobile */
+@media (max-width: 600px) {
+  .ao-trust__inner {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+  }
+  .ao-trust__item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+}
+
+/* Para quem: 1 coluna no mobile */
+@media (max-width: 600px) {
+  .ao-for__col { padding: 28px 20px !important; }
+  .ao-for__list li { font-size: 14px !important; }
+}
+
+/* Modulos: simplificar no mobile */
+@media (max-width: 600px) {
+  .ao-module-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 20px 0 !important;
+  }
+  .ao-module-row__n { font-size: 10px !important; }
+  .ao-module-row__t { font-size: 22px !important; }
+  .ao-module-row__arr { display: none !important; }
+}
+
+/* Bonus: 1 coluna no mobile */
+@media (max-width: 600px) {
+  .ao-bonus__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Depoimentos: 1 coluna no mobile */
+@media (max-width: 600px) {
+  .ao-testim__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* FAQ: 1 coluna no mobile */
+@media (max-width: 600px) {
+  .ao-faq__inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Checkout form padding no mobile */
+@media (max-width: 480px) {
+  .ao-checkout__wrap > div {
+    padding: 28px 20px !important;
+  }
+  .ao-checkout {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Garantia final */
+@media (max-width: 480px) {
+  .ao-guarantee {
+    padding: 64px 20px !important;
+  }
+}
+
+/* Secoes gerais: padding menor no mobile */
+@media (max-width: 600px) {
+  .ao-for,
+  .ao-modules,
+  .ao-bonus,
+  .ao-testim,
+  .ao-faq {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+<!-- HERO -->
+<section class="ao-hero">
+  <div class="ao-hero__text">
+    <span class="ao-hero__badge"><span class="dot"></span>Matricula aberta &middot; Vagas limitadas</span>
+    <h1 data-reveal>
+      O metodo<br/>
+      <em>Clarissa Cunha</em>
+      agora <span class="teal">nas suas maos</span>.
+    </h1>
+    <p class="ao-hero__lede" data-reveal data-reveal-delay="100">
+      Assessoria online para noivas que querem organizar o proprio casamento com o mesmo cuidado e leveza que damos aos presenciais &mdash; de qualquer lugar do mundo.
+    </p>
+    <div class="ao-hero__social" data-reveal data-reveal-delay="200">
+      <span class="ao-hero__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="rate">4.9</span>
+      <span class="who">+ 380 noivas atendidas</span>
+    </div>
+    <div class="ao-hero__price" data-reveal data-reveal-delay="300">
+      <div class="ao-hero__price-main">
+        <span class="old">R$ 1.497</span>
+        <div class="now">R$&thinsp;997<sup style="font-size:0.45em;vertical-align:super;">,00</sup></div>
+      </div>
+      <div class="inst"><strong>ou 12x R$ 97,60</strong> no cartao, sem juros</div>
+    </div>
+    <div class="ao-hero__actions" data-reveal data-reveal-delay="400">
+      <a class="ao-hero__btn-main" href="#checkout">
+        Fazer minha matricula
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg>
+      </a>
+    </div>
+    <div class="ao-hero__trust" data-reveal data-reveal-delay="500">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Acesso imediato</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>7 dias de garantia</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Hotmart &middot; compra segura</span>
+    </div>
+  </div>
+
+  <div class="ao-hero__visual" data-reveal data-reveal-delay="200">
+    <div class="ao-hero__mockup">
+      <div class="ao-hero__mockup-browser">
+        <span></span><span></span><span></span>
+        <div class="url">app.clarissacunha.com.br/modulos</div>
+      </div>
+      <div class="ao-hero__mockup-body">
+        <h4 class="ao-hero__mockup-title">Seu painel da noiva</h4>
+        <div class="ao-hero__mockup-sub">6 modulos &middot; 42 aulas &middot; materiais</div>
+        <div class="ao-hero__mockup-modules">
+          <div class="ao-mod" style="--pv:100%"><div class="ao-mod__n">01</div><div class="ao-mod__t">Primeiros passos<span>concluido</span></div><div class="ao-mod__p"></div></div>
+          <div class="ao-mod" style="--pv:78%"><div class="ao-mod__n">02</div><div class="ao-mod__t">Fornecedores<span>em andamento</span></div><div class="ao-mod__p"></div></div>
+          <div class="ao-mod" style="--pv:45%"><div class="ao-mod__n">03</div><div class="ao-mod__t">Cerimonia<span>em andamento</span></div><div class="ao-mod__p"></div></div>
+          <div class="ao-mod" style="--pv:15%"><div class="ao-mod__n">04</div><div class="ao-mod__t">Cronograma<span>iniciado</span></div><div class="ao-mod__p"></div></div>
+          <div class="ao-mod" style="--pv:0%"><div class="ao-mod__n">05</div><div class="ao-mod__t">Dia do sim<span>bloqueado</span></div><div class="ao-mod__p"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ao-hero__badge-float">
+      <div class="off">33%</div>
+      <div class="lbl">OFF</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="ao-trust">
+  <div class="ao-trust__inner">
+    <div class="ao-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <div><div class="t">Compra segura</div><div class="s">Hotmart &middot; SSL 256</div></div>
+    </div>
+    <div class="ao-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div><div class="t">Acesso por 1 ano</div><div class="s">Renovacao gratuita</div></div>
+    </div>
+    <div class="ao-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20"/></svg>
+      <div><div class="t">Em qualquer pais</div><div class="s">Portugues &middot; online</div></div>
+    </div>
+    <div class="ao-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      <div><div class="t">7 dias de garantia</div><div class="s">Devolvemos 100%</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="ao-for">
+  <div class="ao-for__head" data-reveal>
+    <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-teal-deep);font-weight:500;margin-bottom:20px;display:inline-flex;gap:12px;align-items:center;"><span style="width:24px;height:1px;background:var(--cc-teal);display:inline-block;"></span>01 &middot; Para voce?<span style="width:24px;height:1px;background:var(--cc-teal);display:inline-block;"></span></div>
+    <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.02;color:var(--cc-ink);">Feito para quem quer casar<br/>com <em style="font-style:italic;color:var(--cc-lavender-deep);">leveza e metodo</em></h2>
+  </div>
+  <div class="ao-for__grid">
+    <div class="ao-for__col ao-for__col--yes" data-reveal>
+      <h3><em style="font-style:italic;">E pra voce</em> se voce...</h3>
+      <ul class="ao-for__list">
+        <li><span class="ic"></span>Quer organizar o proprio casamento, mas nao sabe por onde comecar</li>
+        <li><span class="ic"></span>Busca um metodo testado em mais de 400 casamentos reais</li>
+        <li><span class="ic"></span>Precisa negociar com fornecedores e quer saber o que perguntar</li>
+        <li><span class="ic"></span>Mora fora do Nordeste e quer casar em Noronha, Carneiros ou outro destino</li>
+        <li><span class="ic"></span>Quer acessar tudo no seu ritmo, pelo celular ou computador</li>
+      </ul>
+    </div>
+    <div class="ao-for__col ao-for__col--no" data-reveal data-reveal-delay="200">
+      <h3>Talvez <em style="font-style:italic;">nao seja pra voce</em> se...</h3>
+      <ul class="ao-for__list">
+        <li><span class="ic"></span>Voce quer que alguem organize o casamento inteiro para voce no dia a dia</li>
+        <li><span class="ic"></span>Esta buscando uma cerimonialista presencial (temos esse servico, mas separado)</li>
+        <li><span class="ic"></span>Nao tem disponibilidade de 2 a 3 horas por semana para dedicar ao planejamento</li>
+        <li><span class="ic"></span>Busca um modelo pronto, sem aplicacao na realidade do seu casamento</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODULOS -->
+<section class="ao-modules" id="modulos">
+  <div class="ao-modules__head">
+    <div data-reveal>
+      <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-teal-deep);font-weight:500;margin-bottom:16px;">02 &middot; O que voce recebe</div>
+      <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.02;color:var(--cc-ink);">6 modulos.<br/>42 aulas.<br/>Um <em style="font-style:italic;color:var(--cc-lavender-deep);">casamento</em>.</h2>
+    </div>
+    <p style="font-family:var(--ff-display);font-style:italic;font-size:clamp(18px,1.5vw,22px);color:var(--cc-ink-soft);line-height:1.45;" data-reveal data-reveal-delay="200">Cada modulo foi construido com base no que realmente acontece nos casamentos que assessoramos. Nada de teoria distante &mdash; e o passo-a-passo que usamos aqui dentro.</p>
+  </div>
+  <div style="max-width:var(--container-max);margin:0 auto;border-top:1px solid var(--cc-line);">
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 01</span>
+      <h3 class="ao-module-row__t">Primeiros <em>passos</em></h3>
+      <p class="ao-module-row__d">Definindo estilo, orcamento realista, data, local e o dossie inicial da noiva. 6 aulas + planilha de visao.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 02</span>
+      <h3 class="ao-module-row__t">Fornecedores <em>sem susto</em></h3>
+      <p class="ao-module-row__d">Como pesquisar, negociar, revisar contratos e construir a sua rede. Checklist completo por categoria. 9 aulas.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 03</span>
+      <h3 class="ao-module-row__t">A <em>cerimonia</em> perfeita</h3>
+      <p class="ao-module-row__d">Religiosa, civil ou celebrante. Entrada, votos, alianca, musica e timing. 7 aulas + roteiros editaveis.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 04</span>
+      <h3 class="ao-module-row__t">Cronograma <em>e logistica</em></h3>
+      <p class="ao-module-row__d">Timeline mestre, cronograma do dia, logistica de convidados e do destination. 8 aulas + template mestre.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 05</span>
+      <h3 class="ao-module-row__t">O dia do <em>sim</em></h3>
+      <p class="ao-module-row__d">Como sobreviver ao dia. Preparacao, retoque, kit-noiva, delegacao e o que fazer quando algo sai do plano. 7 aulas.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+    <div class="ao-module-row" data-reveal>
+      <span class="ao-module-row__n">Modulo 06</span>
+      <h3 class="ao-module-row__t">Depois do <em>confete</em></h3>
+      <p class="ao-module-row__d">Agradecimentos, album, lua de mel, balanco financeiro. 5 aulas + cronograma pos-casamento.</p>
+      <span class="ao-module-row__arr"><svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="ao-bonus">
+  <div style="text-align:center;max-width:900px;margin:0 auto 64px;" data-reveal>
+    <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-lavender-deep);font-weight:500;margin-bottom:16px;">03 &middot; Bonus da matricula</div>
+    <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.02;color:var(--cc-ink);">Tudo isso tambem vem<br/><em style="font-style:italic;color:var(--cc-lavender-deep);">dentro do kit</em></h2>
+    <p style="color:var(--cc-ink-soft);font-size:var(--fs-md);margin-top:16px;">Ferramentas praticas que fazem a diferenca. Se fossem comprados separadamente, custariam mais do que o curso inteiro.</p>
+  </div>
+  <div class="ao-bonus__grid">
+    <div style="background:var(--cc-cream-warm);border-radius:16px;padding:36px 32px;border:1px solid var(--cc-line-soft);" data-reveal>
+      <span style="display:inline-block;padding:5px 12px;background:var(--cc-lavender);color:white;border-radius:999px;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;margin-bottom:20px;">Bonus 01</span>
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:12px;">Planilha mestre <em style="font-style:italic;color:var(--cc-lavender-deep);">de orcamento</em></h3>
+      <p style="color:var(--cc-ink-soft);font-size:14px;line-height:1.5;margin-bottom:20px;">Modelo usado na assessoria: categorias, projecao, realizado, pagamentos, saldo. Editavel.</p>
+      <div style="font-family:var(--ff-display);font-size:20px;color:var(--cc-teal-deep);font-style:italic;"><s style="color:var(--cc-ink-muted);font-style:normal;margin-right:8px;">R$ 197</s> Incluso</div>
+    </div>
+    <div style="background:var(--cc-cream-warm);border-radius:16px;padding:36px 32px;border:1px solid var(--cc-line-soft);" data-reveal data-reveal-delay="100">
+      <span style="display:inline-block;padding:5px 12px;background:var(--cc-lavender);color:white;border-radius:999px;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;margin-bottom:20px;">Bonus 02</span>
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:12px;">Biblioteca de <em style="font-style:italic;color:var(--cc-lavender-deep);">contratos</em></h3>
+      <p style="color:var(--cc-ink-soft);font-size:14px;line-height:1.5;margin-bottom:20px;">Modelos revisados de contrato para buffet, foto, cerimonialista, decoracao e mais.</p>
+      <div style="font-family:var(--ff-display);font-size:20px;color:var(--cc-teal-deep);font-style:italic;"><s style="color:var(--cc-ink-muted);font-style:normal;margin-right:8px;">R$ 297</s> Incluso</div>
+    </div>
+    <div style="background:var(--cc-cream-warm);border-radius:16px;padding:36px 32px;border:1px solid var(--cc-line-soft);" data-reveal data-reveal-delay="200">
+      <span style="display:inline-block;padding:5px 12px;background:var(--cc-lavender);color:white;border-radius:999px;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;margin-bottom:20px;">Bonus 03</span>
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:12px;">Grupo VIP <em style="font-style:italic;color:var(--cc-lavender-deep);">no WhatsApp</em></h3>
+      <p style="color:var(--cc-ink-soft);font-size:14px;line-height:1.5;margin-bottom:20px;">Acesso ao grupo fechado de noivas. Duvidas respondidas por mim e pelo time toda semana.</p>
+      <div style="font-family:var(--ff-display);font-size:20px;color:var(--cc-teal-deep);font-style:italic;"><s style="color:var(--cc-ink-muted);font-style:normal;margin-right:8px;">R$ 497</s> Incluso</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="ao-testim">
+  <div style="position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(circle at 70% 50%,rgba(158,133,184,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:var(--container-max);margin:0 auto 64px;text-align:center;position:relative;" data-reveal>
+    <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-lavender-soft);font-weight:500;margin-bottom:16px;">04 &middot; Depoimentos</div>
+    <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,5vw,72px);line-height:1.02;">Quem ja passou <em style="font-style:italic;color:var(--cc-lavender-soft);">pelo metodo</em></h2>
+  </div>
+  <div class="ao-testim__grid">
+    <div style="padding:36px 32px;background:rgba(251,247,241,0.05);border:1px solid rgba(251,247,241,0.12);border-radius:14px;display:flex;flex-direction:column;gap:20px;" data-reveal>
+      <div style="color:var(--cc-lavender-soft);font-size:16px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p style="font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:26px;line-height:1.35;color:var(--cc-cream);">"Casei em Noronha sozinha, com 80 convidados atravessando o pais, e o unico motivo de ter dado tudo certo foi o material da Clarissa. Foi meu manual de sobrevivencia e o melhor dinheiro que gastei no casamento inteiro."</p>
+      <div style="padding-top:16px;border-top:1px solid rgba(251,247,241,0.12);margin-top:auto;">
+        <div style="font-family:var(--ff-display);font-size:18px;color:var(--cc-cream);">Juliana &amp; Rodrigo</div>
+        <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(251,247,241,0.55);margin-top:4px;">Fernando de Noronha &middot; 2024</div>
+      </div>
+    </div>
+    <div style="padding:36px 32px;background:rgba(251,247,241,0.05);border:1px solid rgba(251,247,241,0.12);border-radius:14px;display:flex;flex-direction:column;gap:20px;" data-reveal data-reveal-delay="100">
+      <div style="color:var(--cc-lavender-soft);font-size:16px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p style="font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:19px;line-height:1.5;color:var(--cc-cream);">"O modulo de fornecedores me salvou. Ja no primeiro contato eu sabia exatamente o que perguntar."</p>
+      <div style="padding-top:16px;border-top:1px solid rgba(251,247,241,0.12);margin-top:auto;">
+        <div style="font-family:var(--ff-display);font-size:18px;color:var(--cc-cream);">Marina C.</div>
+        <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(251,247,241,0.55);margin-top:4px;">Recife &middot; 2024</div>
+      </div>
+    </div>
+    <div style="padding:36px 32px;background:rgba(251,247,241,0.05);border:1px solid rgba(251,247,241,0.12);border-radius:14px;display:flex;flex-direction:column;gap:20px;" data-reveal data-reveal-delay="200">
+      <div style="color:var(--cc-lavender-soft);font-size:16px;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p style="font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:19px;line-height:1.5;color:var(--cc-cream);">"Estava perdida, achei que ia desistir. Em 2 semanas tinha um cronograma funcionando e me sentia no controle."</p>
+      <div style="padding-top:16px;border-top:1px solid rgba(251,247,241,0.12);margin-top:auto;">
+        <div style="font-family:var(--ff-display);font-size:18px;color:var(--cc-cream);">Carolina G.</div>
+        <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(251,247,241,0.55);margin-top:4px;">Trancoso &middot; 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="ao-faq">
+  <div class="ao-faq__inner">
+    <aside class="ao-faq__side" style="position:sticky;top:120px;align-self:start;" data-reveal>
+      <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-teal-deep);font-weight:500;margin-bottom:20px;">05 &middot; Duvidas</div>
+      <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,4vw,60px);line-height:1.05;margin-bottom:20px;">Perguntas que a gente <em style="font-style:italic;color:var(--cc-lavender-deep);">sempre responde</em></h2>
+      <p style="color:var(--cc-ink-soft);font-size:15px;line-height:1.55;margin-bottom:20px;">Se a sua duvida nao estiver aqui, fala com a gente pelo WhatsApp. Respondemos em ate 2 horas.</p>
+      <a href="https://api.whatsapp.com/send?phone=5581996613555" target="_blank" rel="noopener" style="color:var(--cc-teal-deep);font-size:12px;letter-spacing:0.22em;text-transform:uppercase;border-bottom:1px solid var(--cc-teal);padding-bottom:2px;">Chamar no WhatsApp &rarr;</a>
+    </aside>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <details style="border:1px solid var(--cc-line);border-radius:12px;overflow:hidden;background:var(--cc-cream-warm);" open>
+        <summary style="list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-display);font-weight:400;font-size:20px;color:var(--cc-ink);">Em quanto tempo eu tenho acesso? <span style="font-size:26px;color:var(--cc-teal);flex-shrink:0;">+</span></summary>
+        <div style="padding:0 22px 20px;color:var(--cc-ink-soft);font-size:15px;line-height:1.65;">Assim que o pagamento e aprovado pela Hotmart &mdash; em segundos no cartao e Pix, ou em ate 3 dias uteis no boleto. O e-mail com o login chega automaticamente.</div>
+      </details>
+      <details style="border:1px solid var(--cc-line);border-radius:12px;overflow:hidden;background:var(--cc-cream-warm);">
+        <summary style="list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-display);font-weight:400;font-size:20px;color:var(--cc-ink);">Por quanto tempo eu fico com o acesso? <span style="font-size:26px;color:var(--cc-teal);flex-shrink:0;">+</span></summary>
+        <div style="padding:0 22px 20px;color:var(--cc-ink-soft);font-size:15px;line-height:1.65;"><strong style="color:var(--cc-ink);">1 ano inteiro</strong>, renovavel gratuitamente caso o seu casamento seja depois disso.</div>
+      </details>
+      <details style="border:1px solid var(--cc-line);border-radius:12px;overflow:hidden;background:var(--cc-cream-warm);">
+        <summary style="list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-display);font-weight:400;font-size:20px;color:var(--cc-ink);">Funciona para destination weddings? <span style="font-size:26px;color:var(--cc-teal);flex-shrink:0;">+</span></summary>
+        <div style="padding:0 22px 20px;color:var(--cc-ink-soft);font-size:15px;line-height:1.65;">Sim &mdash; temos um modulo dedicado a logistica de destination, com foco em <strong style="color:var(--cc-ink);">Noronha, Carneiros, Alagoas e Trancoso</strong>.</div>
+      </details>
+      <details style="border:1px solid var(--cc-line);border-radius:12px;overflow:hidden;background:var(--cc-cream-warm);">
+        <summary style="list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-display);font-weight:400;font-size:20px;color:var(--cc-ink);">E se eu nao gostar? <span style="font-size:26px;color:var(--cc-teal);flex-shrink:0;">+</span></summary>
+        <div style="padding:0 22px 20px;color:var(--cc-ink-soft);font-size:15px;line-height:1.65;"><strong style="color:var(--cc-ink);">7 dias de garantia incondicional.</strong> Se nao servir para voce, devolvemos 100% do valor sem perguntas.</div>
+      </details>
+      <details style="border:1px solid var(--cc-line);border-radius:12px;overflow:hidden;background:var(--cc-cream-warm);">
+        <summary style="list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-display);font-weight:400;font-size:20px;color:var(--cc-ink);">Posso parcelar? <span style="font-size:26px;color:var(--cc-teal);flex-shrink:0;">+</span></summary>
+        <div style="padding:0 22px 20px;color:var(--cc-ink-soft);font-size:15px;line-height:1.65;">Pode parcelar em ate <strong style="color:var(--cc-ink);">12x de R$ 97,60 sem juros</strong> no cartao. Ou a vista via Pix ou boleto com 5% de desconto.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKOUT -->
+<section class="ao-checkout" id="checkout">
+  <div style="position:absolute;top:-20%;left:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(107,166,161,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(158,133,184,0.15) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="text-align:center;max-width:900px;margin:0 auto 64px;position:relative;z-index:1;" data-reveal>
+    <h2 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(40px,6vw,90px);line-height:0.98;letter-spacing:-0.02em;margin-bottom:16px;">Sua matricula, <em style="font-style:italic;color:var(--cc-lavender-deep);">agora</em>.</h2>
+    <p style="font-family:var(--ff-display);font-style:italic;font-size:clamp(18px,1.6vw,22px);color:var(--cc-ink-soft);">Preencha os dados abaixo. Em segundos a gente libera seu acesso.</p>
+  </div>
+  <div class="ao-checkout__wrap" data-reveal data-reveal-delay="100">
+    <!-- FORM -->
+    <div style="padding:48px 44px;">
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:26px;color:var(--cc-ink);margin-bottom:6px;">Seus <em style="font-style:italic;color:var(--cc-lavender-deep);">dados</em></h3>
+      <p style="color:var(--cc-ink-soft);font-size:14px;margin-bottom:24px;">Usamos apenas para enviar seu login. Nada de spam.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+        <div class="field"><label>Nome completo <span style="color:var(--cc-lavender-deep);">*</span></label><input type="text" placeholder="Como esta no documento" /></div>
+        <div class="ck-row">
+          <div class="field"><label>E-mail <span style="color:var(--cc-lavender-deep);">*</span></label><input type="email" placeholder="email@exemplo.com" /></div>
+          <div class="field"><label>Celular (WhatsApp) <span style="color:var(--cc-lavender-deep);">*</span></label><input type="tel" placeholder="(81) 99999-9999" /></div>
+        </div>
+        <div class="ck-row">
+          <div class="field"><label>CPF <span style="color:var(--cc-lavender-deep);">*</span></label><input type="text" placeholder="000.000.000-00" /></div>
+          <div class="field"><label>Data do casamento</label><input type="text" placeholder="MM/AAAA" /></div>
+        </div>
+      </div>
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:26px;color:var(--cc-ink);margin-bottom:6px;margin-top:12px;">Forma de <em style="font-style:italic;color:var(--cc-lavender-deep);">pagamento</em></h3>
+      <p style="color:var(--cc-ink-soft);font-size:14px;margin-bottom:16px;">Ambiente 100% seguro. Processado pela Hotmart.</p>
+      <div class="ck-pay">
+        <label class="ck-pay__opt is-selected" id="pay-card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          <span class="lbl">Cartao</span>
+          <span class="sub">12x sem juros</span>
+        </label>
+        <label class="ck-pay__opt" id="pay-pix">
+          <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M112.57 391.19c20.056 0 38.928-7.808 53.12-22l76.693-76.692c5.385-5.384 14.765-5.373 20.136 0l76.989 76.989c14.192 14.192 33.064 22 53.12 22h15.098l-97.138 97.139c-29.641 29.64-77.69 29.64-107.331 0L106.1 391.19h6.47z" fill="currentColor"/>
+  <path d="M112.57 120.81h-6.47l97.157-97.148c29.641-29.641 77.69-29.641 107.331 0L407.726 120.81H392.63c-20.056 0-38.928 7.808-53.12 22l-76.989 76.989c-5.538 5.538-14.598 5.538-20.136 0l-76.693-76.693c-14.192-14.191-33.064-21.999-53.12-21.999z" fill="currentColor"/>
+  <path d="M23.662 204.67l-0.001 0.001L23.662 204.67zM488.338 307.33l-69.86 69.86h-25.848c-13.608 0-26.418-5.299-36.05-14.93l-76.989-76.989c-14.87-14.87-40.991-14.87-55.861 0l-76.693 76.693c-9.632 9.632-22.442 14.93-36.05 14.93H88.16L23.662 307.33c-29.641-29.641-29.641-77.69 0-107.331l64.498-64.498h23.027c13.608 0 26.418 5.299 36.05 14.93l76.693 76.693c15.425 15.425 40.436 15.425 55.861 0l76.989-76.989c9.632-9.632 22.442-14.93 36.05-14.93h25.848l69.86 69.86c29.64 29.64 29.64 77.689-.001 107.265z" fill="currentColor"/>
+</svg>
+          <span class="lbl">Pix</span>
+          <span class="sub">5% off</span>
+        </label>
+        <label class="ck-pay__opt" id="pay-boleto">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6v12M7 6v12M10 6v12M13 6v12M16 6v12M19 6v12"/></svg>
+          <span class="lbl">Boleto</span>
+          <span class="sub">A vista</span>
+        </label>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+        <div class="field"><label>Numero do cartao <span style="color:var(--cc-lavender-deep);">*</span></label><input type="text" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19" /></div>
+        <div class="ck-row">
+          <div class="field"><label>Validade <span style="color:var(--cc-lavender-deep);">*</span></label><input type="text" placeholder="MM/AA" maxlength="5" /></div>
+          <div class="field"><label>CVV <span style="color:var(--cc-lavender-deep);">*</span></label><input type="text" placeholder="000" maxlength="4" /></div>
+        </div>
+        <div class="field"><label>Parcelas <span style="color:var(--cc-lavender-deep);">*</span></label>
+          <select><option>12x de R$ 97,60 sem juros</option><option>10x de R$ 99,70 sem juros</option><option>6x de R$ 166,16 sem juros</option><option>A vista &mdash; R$ 997,00</option></select>
+        </div>
+      </div>
+      <button onclick="window.open('https://pay.hotmart.com/S28593835Y?checkoutMode=10','_blank')" style="width:100%;background:var(--cc-ink);color:var(--cc-cream);padding:20px 24px;border-radius:14px;font-family:var(--ff-sans);font-size:12px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;border:0;transition:all 400ms;" onmouseover="this.style.background='var(--cc-lavender-deep)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--cc-ink)';this.style.transform=''">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Finalizar pagamento seguro
+        <svg width="14" height="9" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;font-size:11px;color:var(--cc-ink-muted);letter-spacing:0.15em;text-transform:uppercase;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--cc-teal)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Processado por Hotmart &middot; SSL 256
+      </div>
+    </div>
+    <!-- SUMMARY -->
+    <div style="padding:48px 44px;background:var(--cc-ink);color:var(--cc-cream);position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 0% 0%,rgba(158,133,184,0.12) 0%,transparent 50%),radial-gradient(circle at 100% 100%,rgba(107,166,161,0.12) 0%,transparent 50%);pointer-events:none;"></div>
+      <div style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--cc-lavender-soft);font-weight:500;margin-bottom:16px;position:relative;">Seu pedido</div>
+      <div style="font-family:var(--ff-display);font-weight:300;font-size:32px;line-height:1.1;margin-bottom:6px;position:relative;">Assessoria <em style="font-style:italic;color:var(--cc-lavender-soft);">Online</em></div>
+      <div style="font-family:var(--ff-display);font-style:italic;font-size:16px;color:rgba(251,247,241,0.7);margin-bottom:28px;position:relative;">Metodo Clarissa Cunha &mdash; 6 modulos + bonus</div>
+      <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;position:relative;">
+        <li style="display:flex;gap:10px;font-size:13px;color:rgba(251,247,241,0.85);line-height:1.5;align-items:flex-start;"><span style="flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--cc-teal);display:inline-block;margin-top:3px;"></span>6 modulos + 42 aulas em video</li>
+        <li style="display:flex;gap:10px;font-size:13px;color:rgba(251,247,241,0.85);line-height:1.5;align-items:flex-start;"><span style="flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--cc-teal);display:inline-block;margin-top:3px;"></span>Planilha mestre de orcamento</li>
+        <li style="display:flex;gap:10px;font-size:13px;color:rgba(251,247,241,0.85);line-height:1.5;align-items:flex-start;"><span style="flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--cc-teal);display:inline-block;margin-top:3px;"></span>Biblioteca de contratos revisados</li>
+        <li style="display:flex;gap:10px;font-size:13px;color:rgba(251,247,241,0.85);line-height:1.5;align-items:flex-start;"><span style="flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--cc-teal);display:inline-block;margin-top:3px;"></span>Grupo VIP de WhatsApp com a Clarissa</li>
+        <li style="display:flex;gap:10px;font-size:13px;color:rgba(251,247,241,0.85);line-height:1.5;align-items:flex-start;"><span style="flex-shrink:0;width:14px;height:14px;border-radius:50%;background:var(--cc-teal);display:inline-block;margin-top:3px;"></span>1 ano de acesso &middot; renovacao gratuita</li>
+      </ul>
+      <div style="display:flex;gap:8px;padding:12px;background:rgba(251,247,241,0.08);border:1px dashed rgba(251,247,241,0.3);border-radius:10px;margin-bottom:20px;position:relative;">
+        <input type="text" placeholder="CUPOM DE DESCONTO" value="CLARISSA33" style="flex:1;background:transparent;border:0;color:var(--cc-cream);font-family:var(--ff-mono);font-size:12px;outline:none;letter-spacing:0.12em;text-transform:uppercase;" />
+        <button style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cc-lavender-soft);font-weight:500;padding:4px 10px;border:1px solid rgba(251,247,241,0.2);border-radius:6px;background:transparent;cursor:pointer;">Aplicar</button>
+      </div>
+      <div style="position:relative;">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:rgba(251,247,241,0.75);"><span>Curso completo</span><span style="font-family:var(--ff-mono);">R$ 1.497,00</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:rgba(251,247,241,0.75);"><span>Desconto (-33%)</span><span style="font-family:var(--ff-mono);color:#7dd87d;">- R$ 500,00</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:rgba(251,247,241,0.75);"><span>Bonus inclusos</span><span style="font-family:var(--ff-mono);">Gratis</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 10px;border-top:1px solid rgba(251,247,241,0.2);margin-top:6px;">
+          <span style="font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(251,247,241,0.6);">Total</span>
+          <span style="font-family:var(--ff-display);font-size:44px;color:var(--cc-cream);font-weight:300;line-height:1;">R$ 997<sup style="font-size:0.45em;vertical-align:super;">,00</sup></span>
+        </div>
+        <div style="font-size:13px;color:rgba(251,247,241,0.6);line-height:1.6;">ou <em style="color:var(--cc-lavender-soft);">12x R$ 97,60</em> sem juros<br/>Pix/Boleto: <em style="color:var(--cc-lavender-soft);">R$ 947,15</em> (5% off)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid rgba(251,247,241,0.12);position:relative;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cc-teal)" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><div style="font-family:var(--ff-display);font-size:15px;color:var(--cc-cream);">Garantia de 7 dias</div><div style="font-size:10px;color:rgba(251,247,241,0.6);letter-spacing:0.15em;text-transform:uppercase;">Se nao servir, devolvemos 100%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA FINAL -->
+<section class="ao-guarantee">
+  <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;" data-reveal>
+    <div style="width:110px;height:110px;border-radius:50%;background:var(--cc-teal);color:white;display:grid;place-items:center;box-shadow:var(--shadow-card);">
+      <div style="text-align:center;"><div style="font-family:var(--ff-display);font-size:44px;font-weight:300;line-height:1;">7</div><div style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;">dias</div></div>
+    </div>
+    <h3 style="font-family:var(--ff-display);font-weight:300;font-size:clamp(28px,4vw,52px);line-height:1.05;color:var(--cc-ink);">Risco <em style="font-style:italic;color:var(--cc-lavender-deep);">zero</em> pra voce.</h3>
+    <p style="color:var(--cc-ink-soft);font-size:var(--fs-md);max-width:540px;line-height:1.6;text-align:center;">Se nos primeiros 7 dias voce achar que o curso nao e o que esperava, devolvemos 100% do valor investido. Sem perguntas, sem burocracia.</p>
+    <a class="btn btn--primary" href="#checkout">Quero me matricular agora <svg class="arrow" viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+  </div>
+</section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var opts = document.querySelectorAll('.ck-pay__opt');
+  opts.forEach(function(o){
+    o.addEventListener('click',function(){
+      opts.forEach(function(x){ x.classList.remove('is-selected'); });
+      o.classList.add('is-selected');
+    });
+  });
+  var inp = document.getElementById('card-num');
+  if(inp) inp.addEventListener('input',function(e){
+    var v=e.target.value.replace(/\D/g,'').slice(0,16);
+    e.target.value=v.replace(/(.{4})/g,'$1 ').trim();
+  });
+})();
+</script>
+</body>
+</html>

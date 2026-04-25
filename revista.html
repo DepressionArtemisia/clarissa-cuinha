@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Revista · Clarissa Cunha</title>
+<meta name="description" content="Conteúdo editorial sobre casamentos — dicas, tendências e inspirações da assessora Clarissa Cunha." />
+
+<meta property="og:title" content="Revista · Clarissa Cunha — Conteudo Editorial" />
+<meta property="og:description" content="Dicas, tendencias e historias reais de quem vive o universo dos casamentos todos os dias. Conteudo criado com amor por Clarissa Cunha." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/brand/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#FBF7F1" />
+<link rel="canonical" href="https://www.clarissacunha.com.br/revista.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/mobile-fixes.css"><link rel="stylesheet" href="styles/page.css">
+<link rel="icon" href="assets/brand/logo.png" type="image/png">
+<style>
+/* ——— Revista page ——— */
+
+/* Category filter */
+.cat-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto var(--sp-8);
+}
+.cat-btn {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--cc-line);
+  color: var(--cc-ink-soft);
+  background: transparent;
+  cursor: pointer;
+  transition: all 300ms var(--ease-out);
+}
+.cat-btn:hover,
+.cat-btn.is-active {
+  background: var(--cc-teal);
+  color: white;
+  border-color: var(--cc-teal);
+}
+
+/* ——— Featured article ——— */
+.article-featured {
+  padding: 0 var(--container-pad) var(--sp-8);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.article-featured__card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--cc-line-soft);
+  background: var(--cc-cream);
+  transition: box-shadow 400ms var(--ease-out);
+  cursor: pointer;
+}
+.article-featured__card:hover {
+  box-shadow: var(--shadow-float);
+}
+.article-featured__img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.article-featured__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.article-featured__card:hover .article-featured__img img {
+  transform: scale(1.04);
+}
+.article-featured__body {
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background: var(--cc-paper);
+}
+.article-featured__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.article-featured__cat {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cc-teal-deep);
+}
+.article-featured__date {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--cc-ink-muted);
+}
+.article-featured__body h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(24px, 2.4vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.article-featured__body h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.article-featured__body p {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.7;
+}
+.article-featured__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cc-line);
+}
+.article-featured__author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.article-featured__author .name {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 16px;
+}
+.article-featured__author .role {
+  font-size: 11px;
+  color: var(--cc-ink-muted);
+}
+
+/* ——— Articles grid ——— */
+.articles-section {
+  padding: 0 var(--container-pad) var(--sp-10);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: var(--sp-7);
+}
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: pointer;
+  transition: transform 400ms var(--ease-out);
+}
+.article-card:hover {
+  transform: translateY(-4px);
+}
+.article-card__img {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+}
+.article-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out);
+}
+.article-card:hover .article-card__img img {
+  transform: scale(1.06);
+}
+.article-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.article-card__cat {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cc-teal-deep);
+}
+.article-card__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--cc-ink-muted);
+}
+.article-card__date {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--cc-ink-muted);
+}
+.article-card__title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.2;
+  color: var(--cc-ink);
+  margin-bottom: 10px;
+  transition: color 300ms;
+}
+.article-card__title em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.article-card:hover .article-card__title {
+  color: var(--cc-teal-deep);
+}
+.article-card__excerpt {
+  font-size: var(--fs-sm);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.article-card__read {
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cc-teal-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 300ms var(--ease-out);
+}
+.article-card:hover .article-card__read {
+  gap: 14px;
+}
+.article-card__read svg {
+  width: 14px;
+  height: 9px;
+}
+
+/* ——— Newsletter ——— */
+.newsletter-section {
+  background: var(--cc-grad-petal);
+  padding: var(--sp-10) var(--container-pad);
+  text-align: center;
+}
+.newsletter-section__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.newsletter-section h2 {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.newsletter-section h2 em {
+  font-style: italic;
+  color: var(--cc-lavender-deep);
+}
+.newsletter-section p {
+  font-size: var(--fs-md);
+  color: var(--cc-ink-soft);
+  line-height: 1.65;
+}
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+}
+.newsletter-form input {
+  flex: 1;
+  font-family: var(--ff-sans);
+  font-size: 15px;
+  color: var(--cc-ink);
+  background: var(--cc-cream);
+  border: 1px solid var(--cc-line);
+  border-radius: var(--radius-pill);
+  padding: 14px 22px;
+  outline: none;
+  transition: border-color 250ms, box-shadow 250ms;
+}
+.newsletter-form input:focus {
+  border-color: var(--cc-teal);
+  box-shadow: 0 0 0 4px rgba(107,166,161,0.15);
+}
+.newsletter-form input::placeholder {
+  color: var(--cc-ink-muted);
+}
+.newsletter-form button {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 14px 28px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 300ms, transform 300ms var(--ease-spring);
+}
+.newsletter-form button:hover {
+  background: var(--cc-lavender-deep);
+  transform: scale(1.03);
+}
+.newsletter-privacy {
+  font-size: 11px;
+  color: var(--cc-ink-muted);
+}
+
+/* ——— Topics section ——— */
+.topics-section {
+  background: var(--cc-ink);
+  color: var(--cc-cream);
+  padding: var(--sp-10) var(--container-pad);
+}
+.topics-section__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: var(--sp-6);
+}
+.topic-chip {
+  padding: 16px 20px;
+  border: 1px solid rgba(251,247,241,0.15);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: background 300ms, border-color 300ms;
+}
+.topic-chip:hover {
+  background: rgba(251,247,241,0.08);
+  border-color: rgba(251,247,241,0.3);
+}
+.topic-chip .t-name {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--cc-cream);
+  display: block;
+  margin-bottom: 4px;
+}
+.topic-chip .t-count {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: rgba(251,247,241,0.4);
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 900px) {
+  .article-featured__card { grid-template-columns: 1fr; }
+  .article-featured__body { padding: 36px 32px; }
+  .articles-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .topics-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .articles-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form button { width: 100%; justify-content: center; }
+  .topics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .topics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== MOBILE REVISTA ===== */
+@media (max-width: 600px) {
+  .cat-filter,
+  .article-featured,
+  .articles-section,
+  .newsletter-section,
+  .topics-section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .articles-section,
+  .topics-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  .newsletter-section { padding-top: 80px !important; padding-bottom: 80px !important; }
+  .cat-filter { gap: 8px; margin-bottom: 40px; }
+  .cat-btn { padding: 8px 14px; font-size: 10px; }
+  .article-featured__card { border-radius: 16px; }
+  .article-featured__body { padding: 28px 20px; }
+  .article-featured__body h2 { font-size: clamp(24px, 6vw, 36px); }
+  .articles-grid { grid-template-columns: 1fr; gap: 40px; }
+  .article-card__img { aspect-ratio: 16/9; }
+  .article-card__title { font-size: clamp(20px, 5.5vw, 28px); }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form button { width: 100%; justify-content: center; padding: 14px; }
+  .topics-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .topic-chip { padding: 14px 12px; }
+  .topic-chip .t-name { font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .articles-grid { gap: 32px; }
+  .topics-grid { grid-template-columns: 1fr 1fr; }
+}
+
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ——— HERO ——— -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <div class="page-hero__crumb">
+        <a href="index.html">Início</a>
+        <span class="sep">·</span>
+        <span>Revista</span>
+      </div>
+      <div class="page-hero__eyebrow" data-reveal>Curadoria Editorial</div>
+      <h1 data-reveal data-reveal-delay="100">
+        Inspiração que<br/>
+        transforma sonhos<br/>
+        em <em>realidade</em>
+      </h1>
+      <p class="page-hero__lede" data-reveal data-reveal-delay="200">
+        Conteúdo sensorial, histórias reais e tendências exclusivas — criado por quem vive o universo dos casamentos com paixão e excelência há mais de uma década.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— CATEGORY FILTER ——— -->
+  <div class="cat-filter" data-reveal>
+    <button class="cat-btn is-active">Todos</button>
+    <button class="cat-btn">Planejamento</button>
+    <button class="cat-btn">Destination</button>
+    <button class="cat-btn">Decoração</button>
+    <button class="cat-btn">Fornecedores</button>
+    <button class="cat-btn">Tendências</button>
+    <button class="cat-btn">Dicas</button>
+  </div>
+
+  <!-- ——— FEATURED ARTICLE ——— -->
+  <div class="article-featured" data-reveal>
+    <div class="article-featured__card">
+      <div class="article-featured__img">
+        <img src="assets/portfolio/na-praia.jpg" alt="Destination wedding em Noronha" data-cursor="image" />
+      </div>
+      <div class="article-featured__body">
+        <div class="article-featured__meta">
+          <span class="article-featured__cat">Destination Wedding</span>
+          <span class="article-featured__date">· 15 Janeiro 2025</span>
+        </div>
+        <h2>Destination wedding em <em>Noronha</em>: o guia completo para realizar o sonho</h2>
+        <p>
+          Fernando de Noronha é, sem dúvida, o destino mais desejado para casamentos no Brasil. Mas casar no paraíso exige planejamento minucioso — das licenças ambientais à logística de fornecedores. Neste guia, compartilhamos tudo que aprendemos em anos de casamentos no arquipélago.
+        </p>
+        <div class="article-featured__author">
+          <img src="assets/press/clarissa-sobre.jpg" alt="Clarissa Cunha" />
+          <div>
+            <div class="name">Clarissa Cunha</div>
+            <div class="role">Fundadora & Assessora</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— ARTICLES GRID ——— -->
+  <section class="articles-section">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow t-eyebrow">Artigos recentes</div>
+      <h2>Leitura para <em>noivas</em></h2>
+    </div>
+    <div class="articles-grid">
+
+      <!-- Artigo 1 -->
+      <article class="article-card" data-reveal>
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-01.jpg" alt="Como escolher o buquê perfeito" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Decoração</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">10 Jan 2025</span>
+        </div>
+        <h2 class="article-card__title">Como escolher o buquê <em>perfeito</em> para o seu estilo</h2>
+        <p class="article-card__excerpt">
+          O buquê é um dos acessórios mais fotografados do casamento. Saiba como escolher o arranjo que combina com seu vestido, o estilo da festa e a sua personalidade — sem errar.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+      <!-- Artigo 2 -->
+      <article class="article-card" data-reveal data-reveal-delay="100">
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-02.jpg" alt="10 erros que noivas cometem" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Planejamento</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">5 Jan 2025</span>
+        </div>
+        <h2 class="article-card__title">10 erros que noivas cometem — e como <em>evitá-los</em></h2>
+        <p class="article-card__excerpt">
+          Depois de mais de 500 casamentos, identificamos os erros mais comuns no planejamento. Da lista de convidados ao contrato com fornecedores — veja o que não fazer.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+      <!-- Artigo 3 -->
+      <article class="article-card" data-reveal data-reveal-delay="200">
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-03.jpg" alt="Casamento na praia" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Destination</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">28 Dez 2024</span>
+        </div>
+        <h2 class="article-card__title">Casamento na <em>praia</em>: guia completo para noivas</h2>
+        <p class="article-card__excerpt">
+          Areia nos pés, brisa do mar e um pôr do sol inesquecível. Mas casar na praia tem seus desafios. Saiba como planejar cada detalhe para que tudo saia perfeito.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+      <!-- Artigo 4 -->
+      <article class="article-card" data-reveal>
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-04.jpg" alt="Como negociar com fornecedores" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Fornecedores</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">20 Dez 2024</span>
+        </div>
+        <h2 class="article-card__title">Como <em>negociar</em> com fornecedores sem perder a qualidade</h2>
+        <p class="article-card__excerpt">
+          Negociar não é sinônimo de baratear. Com as estratégias certas, você consegue o melhor custo-benefício sem abrir mão da qualidade que seu casamento merece.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+      <!-- Artigo 5 -->
+      <article class="article-card" data-reveal data-reveal-delay="100">
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-05.jpg" alt="Tendências 2025" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Tendências</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">15 Dez 2024</span>
+        </div>
+        <h2 class="article-card__title">Tendências de casamento para <em>2025</em> que você precisa conhecer</h2>
+        <p class="article-card__excerpt">
+          Micro weddings, decoração biofílica, cerimônias ao ar livre e personalização extrema. Veja o que vai dominar os casamentos em 2025 segundo as maiores referências do setor.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+      <!-- Artigo 6 -->
+      <article class="article-card" data-reveal data-reveal-delay="200">
+        <div class="article-card__img">
+          <img src="assets/portfolio/thumb-06.jpg" alt="Destination wedding em Noronha" data-cursor="image" />
+        </div>
+        <div class="article-card__meta">
+          <span class="article-card__cat">Destination</span>
+          <span class="article-card__dot"></span>
+          <span class="article-card__date">8 Dez 2024</span>
+        </div>
+        <h2 class="article-card__title">Destination wedding: quando <em>vale a pena</em> e como planejar</h2>
+        <p class="article-card__excerpt">
+          Casar longe de casa é um sonho para muitos casais. Mas quando faz sentido optar por um destination wedding? Veja os prós, contras e como planejar sem estresse.
+        </p>
+        <span class="article-card__read">
+          Ler artigo
+          <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14m0 0L11 1m4 4l-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ——— NEWSLETTER ——— -->
+  <section class="newsletter-section">
+    <div class="newsletter-section__inner">
+      <div class="page-hero__eyebrow" style="justify-content:center;" data-reveal>Newsletter</div>
+      <h2 data-reveal data-reveal-delay="100">
+        Receba conteúdo<br/>
+        <em>exclusivo</em> toda semana
+      </h2>
+      <p data-reveal data-reveal-delay="200">
+        Dicas de planejamento, tendências e histórias reais diretamente na sua caixa de entrada. Sem spam, só conteúdo que vale a pena.
+      </p>
+      <form class="newsletter-form" data-reveal data-reveal-delay="300" action="#" method="post">
+        <input type="email" placeholder="Seu melhor e-mail" required />
+        <button type="submit">Assinar</button>
+      </form>
+      <p class="newsletter-privacy" data-reveal data-reveal-delay="400">
+        Sem spam. Cancele quando quiser.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— TOPICS ——— -->
+  <section class="topics-section">
+    <div class="topics-section__inner">
+      <div class="section-head" style="text-align:left;" data-reveal>
+        <div class="eyebrow t-eyebrow" style="color:rgba(251,247,241,0.5);">Explore por tema</div>
+        <h2 style="color:var(--cc-cream);">Tópicos em <em style="color:var(--cc-lavender-soft);">destaque</em></h2>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-chip" data-reveal>
+          <span class="t-name">Planejamento</span>
+          <span class="t-count">24 artigos</span>
+        </div>
+        <div class="topic-chip" data-reveal data-reveal-delay="100">
+          <span class="t-name">Destination</span>
+          <span class="t-count">18 artigos</span>
+        </div>
+        <div class="topic-chip" data-reveal data-reveal-delay="200">
+          <span class="t-name">Decoração</span>
+          <span class="t-count">31 artigos</span>
+        </div>
+        <div class="topic-chip" data-reveal data-reveal-delay="300">
+          <span class="t-name">Fornecedores</span>
+          <span class="t-count">15 artigos</span>
+        </div>
+        <div class="topic-chip" data-reveal data-reveal-delay="400">
+          <span class="t-name">Tendências</span>
+          <span class="t-count">22 artigos</span>
+        </div>
+        <div class="topic-chip" data-reveal data-reveal-delay="500">
+          <span class="t-name">Noronha</span>
+          <span class="t-count">9 artigos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="js/site.js"></script>
+<script>
+  // Category filter
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+</script>
+</body>
+</html>
